@@ -185,6 +185,12 @@ export default function Layout({ children }) {
           </li>
 
           <li className="nav-item">
+            <a className="nav-link" href="#" role="button">
+              <i className="fas fa-user"></i>
+            </a>
+          </li>
+
+          <li className="nav-item">
             <a
               className="nav-link"
               data-widget="fullscreen"
@@ -192,17 +198,6 @@ export default function Layout({ children }) {
               role="button"
             >
               <i className="fas fa-expand-arrows-alt"></i>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a
-              className="nav-link"
-              data-widget="control-sidebar"
-              data-slide="true"
-              href="#"
-              role="button"
-            >
-              <i className="fas fa-th-large"></i>
             </a>
           </li>
         </ul>
@@ -254,13 +249,15 @@ export default function Layout({ children }) {
             >
               <li className="nav-header">Gestão da Carteira</li>
               <li className="nav-item">
-                <a href="../calendar.html" className="nav-link">
-                  <i className="nav-icon fas fa-briefcase"></i>
-                  <p>
-                    Carteira
-                    <span className="badge badge-info right">2</span>
-                  </p>
-                </a>
+                <Link href="/">
+                  <a className="nav-link">
+                    <i className="nav-icon fas fa-briefcase"></i>
+                    <p>
+                      Carteira
+                      <span className="badge badge-info right">2</span>
+                    </p>
+                  </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a href="../gallery.html" className="nav-link">
@@ -285,10 +282,12 @@ export default function Layout({ children }) {
               <li className="nav-header">Configurações</li>
 
               <li className="nav-item">
-                <a href="../gallery.html" className="nav-link">
-                  <i className="nav-icon fas fa-users"></i>
-                  <p>Gestão de Usuarios</p>
-                </a>
+                <Link href="/gestao-usuarios">
+                  <a className="nav-link">
+                    <i className="nav-icon fas fa-users"></i>
+                    <p>Gestão de Usuários</p>
+                  </a>
+                </Link>
               </li>
             </ul>
           </nav>

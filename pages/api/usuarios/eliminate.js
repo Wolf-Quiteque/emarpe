@@ -9,10 +9,11 @@ async function handler(req, res) {
   const { id } = data;
 
   const client = await clientPromise;
-  const db = client.db("ipo");
+  const db = client.db("myFirstDatabase");
   const result = await db
-    .collection("empresas")
+    .collection("usuarios")
     .deleteOne({ _id: new ObjectId(id) });
+  res.json({ message: "Eliminado com sucesso" });
 }
 
 export default handler;
