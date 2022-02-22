@@ -106,7 +106,7 @@ export default function GestaoUsuarios() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: email,
+          email: email.toLowerCase(),
           cargo: cargo,
           nome: nome,
         }),
@@ -186,32 +186,36 @@ export default function GestaoUsuarios() {
                   </thead>
                   <tbody>
                     {usuarios ? (
-                      usuarios.map((e) => (
-                        <tr>
-                          <td>{e._id.substring(0, 9)}</td>
-                          <td>{e.nome}</td>
-                          <td>{e.cargo}</td>
-                          <td>{e.email}</td>
-                          <td>
-                            {" "}
-                            <button
-                              type="button"
-                              className="close"
-                              aria-label="Close"
-                              data-toggle="modal"
-                              data-target="#eliminar"
-                              onClick={() => {
-                                setusuario(e);
-                              }}
-                            >
-                              <span aria-hidden="true">
-                                {" "}
-                                <i className="fas fa-trash text-danger"></i>{" "}
-                              </span>
-                            </button>
-                          </td>
-                        </tr>
-                      ))
+                      usuarios.map((e) =>
+                        e.cargo != "Admin" ? (
+                          <tr>
+                            <td>{e._id.substring(0, 9)}</td>
+                            <td>{e.nome}</td>
+                            <td>{e.cargo}</td>
+                            <td>{e.email}</td>
+                            <td>
+                              {" "}
+                              <button
+                                type="button"
+                                className="close"
+                                aria-label="Close"
+                                data-toggle="modal"
+                                data-target="#eliminar"
+                                onClick={() => {
+                                  setusuario(e);
+                                }}
+                              >
+                                <span aria-hidden="true">
+                                  {" "}
+                                  <i className="fas fa-trash text-danger"></i>{" "}
+                                </span>
+                              </button>
+                            </td>
+                          </tr>
+                        ) : (
+                          ""
+                        )
+                      )
                     ) : (
                       <div className="overlay mb-5 mt-5 text-center">
                         <i className="fas fa-2x fa-sync-alt fa-spin"></i>
