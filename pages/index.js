@@ -20,6 +20,7 @@ export default function Home() {
   const [pages, setpages] = useState();
   const [nopages, setnopages] = useState();
   const [reload, setreload] = useState();
+  const [usuario, setusuario] = useState("A");
 
   const [nif, setnif] = useState();
   const [nomeEmpresa, setnomeEmpresa] = useState();
@@ -243,27 +244,30 @@ export default function Home() {
             <table className="table table-hover text-nowrap">
               <thead>
                 <tr>
-                  <th>nif</th>
+                  <th>Nif</th>
                   <th>Empresa</th>
-                  <th>categoria</th>
-                  <th>regime</th>
+                  <th>Categoria</th>
+                  <th>Regime</th>
                 </tr>
               </thead>
               <tbody>
-                {empresas ? (
-                  empresas.map((e) => (
-                    <tr
-                      className="dedo"
-                      onClick={() => {
-                        router.replace("/empresa/" + e._id);
-                      }}
-                    >
-                      <td>{e.nif.substring(0, 9)}</td>
-                      <td>{e.nome}</td>
-                      <td>{e.categoria}</td>
-                      <td>{e.regime}</td>
-                    </tr>
-                  ))
+                {session && empresas ? (
+                  empresas.map(
+                    (e) =>
+                      e.id_usuario == session.user.email && (
+                        <tr
+                          className="dedo"
+                          onClick={() => {
+                            router.replace("/empresa/" + e._id);
+                          }}
+                        >
+                          <td>{e.nif.substring(0, 9)}</td>
+                          <td>{e.nome}</td>
+                          <td>{e.categoria}</td>
+                          <td>{e.regime}</td>
+                        </tr>
+                      )
+                  )
                 ) : (
                   <div className="overlay mb-5 mt-5 text-center">
                     <i className="fas fa-2x fa-sync-alt fa-spin"></i>

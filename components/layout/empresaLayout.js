@@ -80,7 +80,7 @@ export default function EmpresaLayout({ children, empresa }) {
                 <a
                   href="#fontes"
                   onClick={() => {
-                    setview(<Fonte />);
+                    setview(<Fonte empresa={empresa} />);
                   }}
                   className="nav-link"
                 >
@@ -345,10 +345,12 @@ export default function EmpresaLayout({ children, empresa }) {
                   </li>
 
                   <li className="nav-item">
-                    <a href="../gallery.html" className="nav-link">
-                      <i className="nav-icon fas fa-clone"></i>
-                      <p>Demonstraçoes</p>
-                    </a>
+                    <Link href={"/empresa/demostracoes/" + empresa._id}>
+                      <a className="nav-link">
+                        <i className="nav-icon fas fa-clone"></i>
+                        <p>Demonstraçoes</p>
+                      </a>
+                    </Link>
                   </li>
 
                   <li className="nav-item">
