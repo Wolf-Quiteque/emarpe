@@ -6,6 +6,7 @@ import { signOut } from "next-auth/react";
 import DadosEmpresa from "../../pages/empresa/Dados-Empresa";
 import Dashboard from "../../pages/empresa/Dashboard";
 import Fonte from "../../pages/empresa/Fonte";
+import Demostracao from "../../pages/empresa/Demostracao";
 
 export default function EmpresaLayout({ children, empresa }) {
   const router = useRouter();
@@ -345,12 +346,16 @@ export default function EmpresaLayout({ children, empresa }) {
                   </li>
 
                   <li className="nav-item">
-                    <Link href={"/empresa/demostracoes/" + empresa._id}>
-                      <a className="nav-link">
-                        <i className="nav-icon fas fa-clone"></i>
-                        <p>Demonstraçoes</p>
-                      </a>
-                    </Link>
+                    <a
+                      href="#demostracao"
+                      className="nav-link"
+                      onClick={() => {
+                        setview(<Demostracao empresa={empresa} />);
+                      }}
+                    >
+                      <i className="nav-icon fas fa-clone"></i>
+                      <p>Demonstraçoes</p>
+                    </a>
                   </li>
 
                   <li className="nav-item">
