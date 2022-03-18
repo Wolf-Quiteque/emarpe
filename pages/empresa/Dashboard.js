@@ -10,22 +10,21 @@ import "react-toastify/dist/ReactToastify.css";
 export default function Dashboard({ empresa }) {
   const [indicador_mensal_1, setindicador_mensal_1] = useState();
 
-  const getIndicadores = async () => {
-    const res = await fetch("/api/empresa/indicadores", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        id_empresa: empresa && new ObjectId(empresa._id),
-        mes: "fevereiro",
-      }),
-    });
-    const data = await res.json();
-    console.log(data);
-  };
+  // const getIndicadores = async () => {
+  //   const res = await fetch("/api/empresa/indicadores", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       id_empresa: empresa && new ObjectId(empresa._id),
+  //       mes: "fevereiro",
+  //     }),
+  //   });
+  //   const data = await res.json();
+  // };
 
-  getIndicadores();
+  // getIndicadores();
 
   return (
     <div className="container">

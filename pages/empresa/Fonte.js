@@ -12,6 +12,8 @@ export default function Fonte({ empresa }) {
   var toaststate;
   var contador = 0;
   var balancete = {};
+  var balancete2 = {};
+
   var drmensal = {};
   var balancoarray = {};
 
@@ -56,6 +58,20 @@ export default function Fonte({ empresa }) {
       for (let index = 0; index < d.length; index++) {
         if (d[index].__EMPTY == "11 Imobilizações corpóreas") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["11_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -83,6 +99,21 @@ export default function Fonte({ empresa }) {
 
               balancete["11_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["11_credito"] = Number(valores);
+            }
+
             contador = contador + 1;
           }
 
@@ -92,6 +123,20 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "14 Imobilizações em curso") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["14_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -119,6 +164,21 @@ export default function Fonte({ empresa }) {
 
               balancete["14_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["14_credito"] = Number(valores);
+            }
+
             contador = contador + 1;
           }
           contador = 0;
@@ -126,6 +186,20 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "18 Amortizações acumuladas") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["18_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -153,6 +227,20 @@ export default function Fonte({ empresa }) {
 
               balancete["18_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["18_credito"] = Number(valores);
+            }
             contador = contador + 1;
           }
           contador = 0;
@@ -160,6 +248,20 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "21 Compras") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["21_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -187,6 +289,21 @@ export default function Fonte({ empresa }) {
 
               balancete["21_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["21_credito"] = Number(valores);
+            }
+
             contador = contador + 1;
           }
           contador = 0;
@@ -194,6 +311,20 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "31 Clientes") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["31_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -221,6 +352,21 @@ export default function Fonte({ empresa }) {
 
               balancete["31_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["31_credito"] = Number(valores);
+            }
+
             contador = contador + 1;
           }
           contador = 0;
@@ -228,6 +374,20 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "32 Fornecedores") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["32_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -255,6 +415,21 @@ export default function Fonte({ empresa }) {
 
               balancete["32_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["32_credito"] = Number(valores);
+            }
+
             contador = contador + 1;
           }
           contador = 0;
@@ -262,6 +437,20 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "34 Estado") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["34_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -289,6 +478,21 @@ export default function Fonte({ empresa }) {
 
               balancete["34_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["34_credito"] = Number(valores);
+            }
+
             contador = contador + 1;
           }
           contador = 0;
@@ -296,6 +500,20 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "35 Entidades participantes e participadas") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["35_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -323,6 +541,20 @@ export default function Fonte({ empresa }) {
 
               balancete["35_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["35_credito"] = Number(valores);
+            }
             contador = contador + 1;
           }
           contador = 0;
@@ -330,6 +562,20 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "36 Pessoal") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["36_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -357,6 +603,20 @@ export default function Fonte({ empresa }) {
 
               balancete["36_credito"] = Number(valores);
             }
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["36_credito"] = Number(valores);
+            }
+
             contador = contador + 1;
           }
           contador = 0;
@@ -364,6 +624,20 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "37 Outros valores a receber e a pagar") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["37_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -391,6 +665,21 @@ export default function Fonte({ empresa }) {
 
               balancete["37_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["37_credito"] = Number(valores);
+            }
+
             contador = contador + 1;
           }
           contador = 0;
@@ -398,6 +687,19 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "42 Depósitos a prazo") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["42_debito"] = Number(valores);
+            }
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -425,6 +727,20 @@ export default function Fonte({ empresa }) {
 
               balancete["42_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["42_credito"] = Number(valores);
+            }
             contador = contador + 1;
           }
           contador = 0;
@@ -432,6 +748,19 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "43 Depósitos á ordem") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["43_debito"] = Number(valores);
+            }
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -459,12 +788,40 @@ export default function Fonte({ empresa }) {
 
               balancete["43_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["43_credito"] = Number(valores);
+            }
             contador = contador + 1;
           }
           contador = 0;
         }
         if (d[index].__EMPTY == "45 Caixa") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["45_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -492,6 +849,20 @@ export default function Fonte({ empresa }) {
 
               balancete["45_credito"] = Number(valores);
             }
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["45_credito"] = Number(valores);
+            }
+
             contador = contador + 1;
           }
           contador = 0;
@@ -499,6 +870,20 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "48 Conta transitória") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["48_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -526,6 +911,21 @@ export default function Fonte({ empresa }) {
 
               balancete["48_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["48_credito"] = Number(valores);
+            }
+
             contador = contador + 1;
           }
           contador = 0;
@@ -533,6 +933,20 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "51 Capital") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["51_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -560,6 +974,21 @@ export default function Fonte({ empresa }) {
 
               balancete["51_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["51_credito"] = Number(valores);
+            }
+
             contador = contador + 1;
           }
           contador = 0;
@@ -567,6 +996,20 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "61 Vendas") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["61_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -594,6 +1037,21 @@ export default function Fonte({ empresa }) {
 
               balancete["61_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["61_credito"] = Number(valores);
+            }
+
             contador = contador + 1;
           }
           contador = 0;
@@ -601,6 +1059,20 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "62 Prestações de serviço") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["62_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -628,6 +1100,20 @@ export default function Fonte({ empresa }) {
 
               balancete["62_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["62_credito"] = Number(valores);
+            }
             contador = contador + 1;
           }
           contador = 0;
@@ -635,6 +1121,20 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "66 Proveitos e ganhos financeiros gerais") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["66_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -662,6 +1162,21 @@ export default function Fonte({ empresa }) {
 
               balancete["66_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["66_credito"] = Number(valores);
+            }
+
             contador = contador + 1;
           }
           contador = 0;
@@ -671,6 +1186,20 @@ export default function Fonte({ empresa }) {
           d[index].__EMPTY == "68 Outros proveitos e ganhos não operacionais"
         ) {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["68_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -698,6 +1227,20 @@ export default function Fonte({ empresa }) {
 
               balancete["68_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["68_credito"] = Number(valores);
+            }
             contador = contador + 1;
           }
           contador = 0;
@@ -705,6 +1248,20 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "72 Custos com o pessoal") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["72_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -732,6 +1289,20 @@ export default function Fonte({ empresa }) {
 
               balancete["72_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["72_credito"] = Number(valores);
+            }
             contador = contador + 1;
           }
           contador = 0;
@@ -739,6 +1310,19 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "75 Outros custos e perdas operacionais") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["75_debito"] = Number(valores);
+            }
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -766,6 +1350,21 @@ export default function Fonte({ empresa }) {
 
               balancete["75_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["75_credito"] = Number(valores);
+            }
+
             contador = contador + 1;
           }
           contador = 0;
@@ -773,6 +1372,20 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "76 Custos e perdas financeiros gerais") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["76_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -800,6 +1413,21 @@ export default function Fonte({ empresa }) {
 
               balancete["76_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["76_credito"] = Number(valores);
+            }
+
             contador = contador + 1;
           }
           contador = 0;
@@ -807,6 +1435,20 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "78 Outros custos e perdas não operacionais") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["78_debito"] = Number(valores);
+            }
+
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -834,6 +1476,21 @@ export default function Fonte({ empresa }) {
 
               balancete["78_credito"] = Number(valores);
             }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["78_credito"] = Number(valores);
+            }
+
             contador = contador + 1;
           }
           contador = 0;
@@ -841,6 +1498,19 @@ export default function Fonte({ empresa }) {
 
         if (d[index].__EMPTY == "81 Resultados transitados") {
           for (j in d[index]) {
+            if (contador == 5) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["81_debito"] = Number(valores);
+            }
             if (contador == 3) {
               var valores = d[index][j];
 
@@ -867,6 +1537,20 @@ export default function Fonte({ empresa }) {
               }
 
               balancete["81_credito"] = Number(valores);
+            }
+
+            if (contador == 6) {
+              var valores = d[index][j];
+
+              for (let indexSub = 0; indexSub < valores.length; indexSub++) {
+                valores = d[index][j]
+                  .replace("Kz", "")
+                  .replace(",", ".")
+                  .replace(" ", "")
+                  .replace(/\s/g, "");
+              }
+
+              balancete2["81_credito"] = Number(valores);
             }
             contador = contador + 1;
           }
@@ -899,46 +1583,91 @@ export default function Fonte({ empresa }) {
       balancete["55_credito"] = 0;
       balancete["57_credito"] = 0;
 
+      // Balancete2
+
+      balancete2["71_debito"] = 0;
+
+      balancete2["73_debito"] = 0;
+      balancete2["63_debito"] = 0;
+      balancete2["68_debito"] = 0;
+      balancete2["26_debito"] = 0;
+      balancete2["12_debito"] = 0;
+      balancete2["13_debito"] = 0;
+      balancete2["52_debito"] = 0;
+      balancete2["55_debito"] = 0;
+      balancete2["57_debito"] = 0;
+
+      balancete2["71_credito"] = 0;
+
+      balancete2["73_credito"] = 0;
+      balancete2["63_credito"] = 0;
+      balancete2["68_credito"] = 0;
+      balancete2["26_credito"] = 0;
+      balancete2["12_credito"] = 0;
+      balancete2["13_credito"] = 0;
+      balancete2["52_credito"] = 0;
+      balancete2["55_credito"] = 0;
+      balancete2["57_credito"] = 0;
+
       setbalancetemes(balancete);
+      setbalancetemes(balancete2);
+
+      //DEMOSTRAÇÃO DE RESULTADOS
+      //----------
 
       drmensal.vendas = Number(
         balancete["61_credito"] - balancete["61_debito"]
       );
+
       drmensal.prestacao_de_servico = Number(
         balancete["62_credito"] - balancete["62_debito"]
       );
+
       drmensal.total = Number(drmensal.prestacao_de_servico + drmensal.vendas);
+
       drmensal.custos_das_mercadorias_vendidas = Number(
         balancete["71_debito"] - balancete["71_credito"]
       );
-      drmensal.margem_bruta =
-        Number(
-          drmensal.custos_das_mercadorias_vendidas +
-            drmensal.prestacao_de_servico
-        ) - Number(drmensal.custos_das_mercadorias_vendidas);
+
+      drmensal.margem_bruta = Number(
+        drmensal.total - drmensal.custos_das_mercadorias_vendidas
+      );
+      //----------
+
+      //------------------------------------------------------------------------------------
+
+      //----------
       drmensal.outros_proveitos_operacionais = Number(
         balancete["63_credito"] - balancete["63_debito"]
       );
+
       drmensal.custos_de_distribuicao = 0;
+
       drmensal.custos_administrativos_pessoal = Number(
         balancete["72_debito"] - balancete["72_credito"]
       );
-      drmensal.outros_custos_e_perdas_operacionais = balancete["76_debito"];
+
+      drmensal.outros_custos_e_perdas_operacionais = Number(
+        balancete["75_debito"] - balancete["75_credito"]
+      );
+
       drmensal.resultados_operacionais_ebitda =
         Number(drmensal.margem_bruta) -
         Number(
           drmensal.outros_proveitos_operacionais +
+            drmensal.custos_de_distribuicao +
             drmensal.custos_administrativos_pessoal +
-            drmensal.custos_de_distribuicao
-        ) +
-        Number(balancete["75_debito"] - balancete["75_credito"]);
+            drmensal.outros_custos_e_perdas_operacionais
+        );
 
       drmensal.amortizacoes = Number(
         balancete["73_debito"] - balancete["73_credito"]
       );
+
       drmensal.resultados_operacionais_ebit = Number(
         drmensal.resultados_operacionais_ebitda - drmensal.amortizacoes
       );
+
       drmensal.resultados_financeiros =
         Number(balancete["66_credito"] - balancete["66_debito"]) -
         Number(balancete["76_debito"] - balancete["76_credito"]);
@@ -957,32 +1686,37 @@ export default function Fonte({ empresa }) {
       );
 
       drmensal.imposto_sobre_os_rendimentos_provisional = 0;
+
       drmensal.resultados_liquidos_das_actividades_correntes = Number(
         drmensal.resultados_antes_de_imposto -
           drmensal.imposto_sobre_os_rendimentos_provisional
       );
+
       drmensal.reultados_extraordinario = 0;
+
       drmensal.imposto_sobre_rendimetno = 0;
+
       drmensal.resultados_liquido_do_exercicio =
         drmensal.resultados_liquidos_das_actividades_correntes;
 
       setdemostracao_resultados(drmensal);
 
       //------------------BALANÇO----------------------------------------------------
-      // ACTIVO NAO CORRENTES
-      balancoarray.imobilizacoes_corporeas =
-        Number(
-          balancete["11_debito"] -
-            balancete["11_credito"] +
-            (balancete["14_debito"] - balancete["14_credito"])
-        ) - Number(balancete["18_debito"] - balancete["18_credito"]);
+      var conta11, conta14, conta18;
 
-      balancoarray.imobilizacoes_incorporeas = Number(
-        balancete["12_debito"] - balancete["12_credito"]
-      );
+      // ACTIVO NAO CORRENTES
+
+      conta11 = Number(balancete2["11_debito"]);
+      conta14 = Number(balancete2["14_debito"]);
+      conta18 = Number(balancete2["18_debito"]);
+
+      balancoarray.imobilizacoes_corporeas =
+        Number(conta11 + conta14) - Number(conta18);
+
+      balancoarray.imobilizacoes_incorporeas = Number(balancete2["12_debito"]);
 
       balancoarray.investimentos_em_subsidiarias = Number(
-        balancete["13_debito"] - balancete["13_credito"]
+        balancete2["13_debito"]
       );
 
       balancoarray.outros_activos_financeiros =
@@ -1000,43 +1734,51 @@ export default function Fonte({ empresa }) {
 
       //ACTIVO CORRENTES
       balancoarray.existencias =
-        Number(balancete["21_debito"] - balancete["21_credito"]) +
-        Number(balancete["26_debito"] - balancete["26_credito"]);
+        Number(balancete2["21_debito"]) + Number(balancete2["26_debito"]);
 
       balancoarray.contas_a_receber = Number(
-        balancete["31_debito"] +
-          balancete["32_debito"] +
-          balancete["34_debito"] +
-          balancete["35_debito"] +
-          balancete["36_debito"] +
-          balancete["37_debito"]
+        balancete2["31_debito"] +
+          balancete2["32_debito"] +
+          balancete2["34_debito"] +
+          balancete2["35_debito"] +
+          balancete2["36_debito"] +
+          balancete2["37_debito"]
       );
 
       balancoarray.disponibilidades =
-        Number(balancete["42_debito"] - balancete["42_credito"]) +
-        Number(balancete["43_debito"] - balancete["43_credito"]) +
-        Number(balancete["45_debito"] - balancete["45_credito"]) +
-        Number(balancete["48_debito"] - balancete["48_credito"]);
+        Number(balancete2["42_debito"]) +
+        Number(balancete2["43_debito"]) +
+        Number(balancete2["45_debito"]) +
+        Number(balancete2["48_debito"]);
 
       balancoarray.outros_activos_correntes = 0;
+
       balancoarray.total_activos_correntes = Number(
         balancoarray.existencias +
           balancoarray.contas_a_receber +
-          balancoarray.disponibilidades
+          balancoarray.disponibilidades +
+          balancoarray.outros_activos_correntes
+      );
+
+      balancoarray.total_activos = Number(
+        balancoarray.total_activos_correntes +
+          balancoarray.total_activo_nao_corrente
       );
 
       //Capital Propio
       balancoarray.capital =
-        Number(balancete["51_debito"] - balancete["51_credito"]) +
-        Number(balancete["52_debito"] - balancete["52_credito"]);
+        Number(balancete2["51_credito"]) + Number(balancete2["52_credito"]);
 
       balancoarray.reservas = Number(
-        balancete["55_debito"] + balancete["57_debito"]
+        balancete2["55_credito"] + balancete2["57_credito"]
       );
-      Number(balancete["55_debito"] - balancete["55_credito"]) +
-        Number(balancete["57_debito"] - balancete["57_credito"]);
-      balancoarray.resultados_transitados = Number(balancete["81_debito"]);
-      balancoarray.resultados_de_exercicio = 0;
+
+      balancoarray.resultados_transitados =
+        Number(balancete2["81_debito"] - balancete2["81_credito"]) * -1;
+
+      balancoarray.resultados_de_exercicio =
+        drmensal.resultados_liquido_do_exercicio;
+
       balancoarray.total_capital_propio = Number(
         balancoarray.capital +
           balancoarray.reservas +
@@ -1053,18 +1795,25 @@ export default function Fonte({ empresa }) {
       balancoarray.total_passivo_nao_corrente = 0;
 
       //passivo corrente
-      balancoarray.contas_a_pagar = balancoarray.contas_a_receber = Number(
-        balancete["31_credito"] +
-          balancete["32_credito"] +
-          balancete["34_credito"] +
-          balancete["35_credito"] +
-          balancete["36_credito"] +
-          balancete["37_credito"]
+      balancoarray.contas_a_pagar = Number(
+        balancete2["31_credito"] +
+          balancete2["32_credito"] +
+          balancete2["34_credito"] +
+          balancete2["35_credito"] +
+          balancete2["36_credito"] +
+          balancete2["37_credito"]
       );
+
       balancoarray.emprestimo_de_curto_prazo = 0;
       balancoarray.parte_cor_empr_media_longo_prazo = 0;
       balancoarray.outros_passivos_correntes = 0;
-      balancoarray.total_passivo_correntes = balancoarray.contas_a_receber;
+
+      balancoarray.total_passivo_correntes =
+        balancoarray.contas_a_pagar +
+        balancoarray.emprestimo_de_curto_prazo +
+        balancoarray.parte_cor_empr_media_longo_prazo +
+        balancoarray.outros_passivos_correntes;
+
       balancoarray.total_capital_poprio_e_passivo = Number(
         balancoarray.total_passivo_nao_corrente +
           balancoarray.total_capital_propio +
@@ -1111,9 +1860,10 @@ export default function Fonte({ empresa }) {
     });
 
     if (res.status == 200) {
-      drmensal["id_empresa"] = empresa._id;
-      drmensal["mes"] = mes;
-      drmensal["ano"] = ano;
+      drmensal = demostracao_resultados;
+      drmensal.id_empresa = empresa._id;
+      drmensal.mes = mes;
+      drmensal.ano = ano;
       setdemostracao_resultados(drmensal);
       const res = await fetch("/api/empresa/novodemostracaomensal", {
         method: "POST",
@@ -1124,9 +1874,10 @@ export default function Fonte({ empresa }) {
       });
 
       if (res.status == 200) {
-        balancoarray["id_empresa"] = empresa._id;
-        balancoarray["mes"] = mes;
-        balancoarray["ano"] = ano;
+        balancoarray = balanco;
+        balancoarray.id_empresa = empresa._id;
+        balancoarray.mes = mes;
+        balancoarray.ano = ano;
         setbalanco(balancoarray);
         const res = await fetch("/api/empresa/novobalancomensal", {
           method: "POST",

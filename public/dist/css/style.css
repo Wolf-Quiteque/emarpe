@@ -48,3 +48,26 @@ div.login-page-inactivo {
   cursor: pointer;
   box-shadow: 0 0 6px rgba(0, 174, 255, 0.576);
 }
+
+div.overflowing {
+  width: calc(120vh - 10px);
+  overflow-x: scroll;
+  height: calc(70vh - 10px);
+  overflow-y: scroll;
+}
+
+div.overflowing-down {
+  height: calc(70vh - 10px);
+  overflow-y: scroll;
+}
+
+div.overflowing-left {
+  width: calc(120vh - 10px);
+  overflow-x: scroll;
+}
+
+.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}

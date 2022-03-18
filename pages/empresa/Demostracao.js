@@ -2,13 +2,50 @@ import Head from "next/head";
 import { ObjectId } from "bson";
 
 import Link from "next/link";
+import NumberFormat from "react-number-format";
 import BarChart from "../../components/recharts/Barchart";
 import { useRef, useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Demostracao({ empresa }) {
-  const [indicador_mensal_1, setindicador_mensal_1] = useState();
+  const [dre, setdre] = useState();
+  const [balanco, setbalanco] = useState();
+
+  const getDRE = async () => {
+    const res = await fetch("/api/empresa/getdre", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id_empresa: new ObjectId(empresa._id),
+      }),
+    });
+    const data = await res.json();
+    setdre(data);
+  };
+
+  const getBalanco = async () => {
+    const res = await fetch("/api/empresa/getBalanco", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id_empresa: new ObjectId(empresa._id),
+      }),
+    });
+    const data = await res.json();
+    setbalanco(data);
+
+    console.log(data);
+  };
+
+  useEffect(() => {
+    getBalanco();
+    getDRE();
+  }, []);
 
   return (
     <div className="container">
@@ -24,1808 +61,1118 @@ export default function Demostracao({ empresa }) {
           <div className="col-md-40">
             <h3 className="mt-3 mb-3">Demostração {empresa && empresa.nome}</h3>
 
-            <div className="card">
-              <div className="card-header">
-                {" "}
-                <ul
-                  className="nav nav-tabs"
-                  id="custom-content-below-tab"
-                  role="tablist"
-                >
-                  <li className="nav-item">
-                    <a
-                      className="nav-link "
-                      id="dre-tab"
-                      data-toggle="pill"
-                      href="#dre"
-                      role="tab"
-                      aria-controls="dre"
-                      aria-selected="false"
+            <div className="row">
+              <div className="col-md-12">
+                <div className="card card-primary card-tabs">
+                  <div className="card-header p-0 pt-1">
+                    <ul
+                      className="nav nav-tabs"
+                      id="custom-tabs-one-tab"
+                      role="tablist"
                     >
-                      <h4 className="mt-3 mb-3">DRE</h4>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      className="nav-link"
-                      id="balancete-tab"
-                      data-toggle="pill"
-                      href="#balancete"
-                      role="tab"
-                      aria-controls="balancete"
-                      aria-selected="false"
-                    >
-                      <h4 className="mt-3 mb-3">Balancete</h4>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      className="nav-link"
-                      id="balanco-tab"
-                      data-toggle="pill"
-                      href="#balanco"
-                      role="tab"
-                      aria-controls="balanco"
-                      aria-selected="false"
-                    >
-                      <h4 className="mt-3 mb-3">Balanço</h4>
-                    </a>
-                  </li>
-                </ul>
-                <div className="row">
-                  <div className="col-md-40">
-                    <div className="card-body">
-                      <div className="tab-content">
-                        {/* dr */}
-                        <div
-                          className="tab-pane fade"
-                          id="dre"
+                      {" "}
+                      <li className="nav-item">
+                        <a
+                          className="nav-link"
+                          id="custom-tabs-one-balancete-tab"
+                          data-toggle="pill"
+                          href="#custom-tabs-one-balancete"
                           role="tab"
-                          aria-labelledby="custom-tabs-one-dre-tab"
+                          aria-controls="custom-tabs-one-balancete"
+                          aria-selected="false"
                         >
-                          <table
-                            id="example2"
-                            className="table table-bordered table-hover dataTable dtr-inline"
-                            aria-describedby="example2_info"
-                          >
-                            <thead>
-                              <tr>
-                                <th scope="col">Designaçao</th>
-                                <th scope="col">Notas</th>
-                                <th scope="col">janeiro</th>
-                                <th scope="col">Fevereiro</th>
-                                <th scope="col">Março</th>
-                                <th scope="col">Abril</th>
-                                <th scope="col">Maio</th>
-                                <th scope="col">Junho</th>
-                                <th scope="col">julho</th>
-                                <th scope="col">Agosto</th>
-                                <th scope="col">Setembro</th>
-                                <th scope="col">Outubro</th>
-                                <th scope="col">Novembro </th>
-                                <th scope="col">Dezembro</th>
-                              </tr>
-                            </thead>
-
-                            <tbody>
-                              <tr>
-                                <td>vendas </td>
-                                <td>22</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>Prestacao de servico </td>
-                                <td>23</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>custos de mercadoria vendidas </td>
-                                <td>24</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>Margem bruta </td>
-                                <td></td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>Outros proveitos operacionais </td>
-                                <td></td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>Custos de Destribuicao </td>
-                                <td></td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>253543</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>{" "}
-                              <tr>
-                                <td> Custos Administrativos(Pessoal) </td>
-                                <td></td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>{" "}
-                              <tr>
-                                <td> Outros custos e Perdas Operacionais</td>
-                                <td></td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>Resultados Operacionais EBITDA </td>
-                                <td></td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>Amortizaçoes</td>
-                                <td></td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>Resultados Operacionais EBIT </td>
-                                <td></td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>31</td>
-                                <td>24</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>Resultados de Filias e associadas </td>
-                                <td>32</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>Resultados ñ Operacionais </td>
-                                <td>24</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>Resultados antes de Imposto</td>
-                                <td></td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>Imposto sobre redimento(Provisional)</td>
-                                <td>25</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  Resultados Liquidos das Actividades Correntes{" "}
-                                </td>
-                                <td>24</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>Resultados Extraordinarios </td>
-                                <td>35</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>Imposto sobre o Rendimento </td>
-                                <td>34</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>Resultados Liquidos do exercicio </td>
-                                <td>35</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-
-                        {/* balancete*/}
-                        <div
-                          className="tab-pane fade "
-                          id="balancete"
+                          Balancete
+                        </a>
+                      </li>
+                      <li className="nav-item">
+                        <a
+                          className="nav-link active"
+                          id="custom-tabs-one-DRE-tab"
+                          data-toggle="pill"
+                          href="#custom-tabs-one-DRE"
                           role="tab"
-                          aria-labelledby="custom-tabs-one-balancete-tab"
+                          aria-controls="custom-tabs-one-DRE"
+                          aria-selected="true"
                         >
-                          <table
-                            id="example2"
-                            className="table table-bordered table-hover dataTable dtr-inline"
-                            aria-describedby="example2_info"
-                          >
-                            <thead>
-                              <tr>
-                                <th scope="col">
-                                  {" "}
-                                  1 Meios Fixos e Investimentos
+                          DRE
+                        </a>
+                      </li>
+                      <li className="nav-item">
+                        <a
+                          className="nav-link"
+                          id="custom-tabs-one-balanco-tab"
+                          data-toggle="pill"
+                          href="#custom-tabs-one-balanco"
+                          role="tab"
+                          aria-controls="custom-tabs-one-balanco"
+                          aria-selected="false"
+                        >
+                          Balanco
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="card-body">
+                    <div
+                      className="tab-content "
+                      id="custom-tabs-one-tabContent"
+                    >
+                      {" "}
+                      <div
+                        className="tab-pane fade"
+                        id="custom-tabs-one-balancete"
+                        role="tabpanel"
+                        aria-labelledby="custom-tabs-one-balancete-tab"
+                      ></div>
+                      <div
+                        className="tab-pane fade show active overflowing"
+                        id="custom-tabs-one-DRE"
+                        role="tabpanel"
+                        aria-labelledby="custom-tabs-one-DRE-tab"
+                      >
+                        <div className="row">
+                          <div className="col-md-6" style={{ zIndex: 1000 }}>
+                            <table className="table table-hover">
+                              <thead>
+                                <tr>
+                                  <th>
+                                    <h5>Designação</h5>
+                                  </th>
+                                </tr>
+                              </thead>
+
+                              <tbody>
+                                <th>
+                                  <tr>
+                                    <th>Vendas</th>
+                                    <th>22</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Prestação de serviços</th>
+                                    <th>23</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Total</th>
+                                    <th></th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Custos das mercadorias vendidas</th>
+                                    <th>24</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Margem Bruto</th>
+                                    <th></th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Outros proveitos operacionasi</th>
+                                    <th></th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Custos de distribuição</th>
+                                    <th></th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Custos adiminstrativos (Pessoal)</th>
+                                    <th></th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Outros custos e perdas operacionais</th>
+                                    <th></th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Resultados operacionais (EBITDA)</th>
+                                    <th></th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Amortizações</th>
+                                    <th></th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Resultados operacionais(EBIT)</th>
+                                    <th></th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Resultados Financeiros</th>
+                                    <th>31</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Resultados de filhas e associadas</th>
+                                    <th>32</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Resultados não operacionais</th>
+                                    <th>33</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Resultados antes de imposto</th>
+                                    <th></th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>
+                                      Impostos sobre rendimentos (Provisional)
+                                    </th>
+                                    <th>35</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>
+                                      Resultados Liquidos das actividades
+                                      Correntes
+                                    </th>
+                                    <th></th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Resultados Extraordinarios</th>
+                                    <th>34</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Imposto sobre o Rendimento </th>
+                                    <th>35</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Resultados Liquido do exercicio</th>
+                                    <th>34</th>
+                                  </tr>
                                 </th>
+                              </tbody>
+                            </table>
+                          </div>
 
-                                <th scope="col">janeiro</th>
-                                <th scope="col">Fevereiro</th>
-                                <th scope="col">Março</th>
-                                <th scope="col">Abril</th>
-                                <th scope="col">Maio</th>
-                                <th scope="col">Junho</th>
-                                <th scope="col">julho</th>
-                                <th scope="col">Agosto</th>
-                                <th scope="col">Setembro</th>
-                                <th scope="col">Outubro</th>
-                                <th scope="col">Novembro </th>
-                                <th scope="col">Dezembro</th>
-                              </tr>
-                            </thead>
-
-                            <tbody>
-                              <tr>
-                                <td>11 Imobilizações corporias </td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td> 12 Imobilizações Incorporais </td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  13 invest. em subsidiarias e associadas{" "}
-                                </td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>13 Outros activos financeiros </td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>14 imobilizações em curso </td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td> 18 Amortizaçoes acumuladas </td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>253543</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>{" "}
-                              <tr>
-                                <td> 2 EXISTENCIAS </td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>{" "}
-                              <tr>
-                                <td> 21 Compras</td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td> 26 Mercadorias</td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>3 TERCEIROS </td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td> 31 Clientes saldo devedor </td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>31 Clientes saldo credor </td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td> 32 Fornecedores saldo credor</td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>32 Fornecedores saldo devedor</td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>34 Estado saldo devedor </td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td> 34Estado saldo credor </td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  35 Entidades participantes e participadas SD{" "}
-                                </td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  {" "}
-                                  35 Entidades participantes e participadas SC{" "}
-                                </td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td> 36 Pessoal saldo credor </td>
-
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>36 Pessoal saldo devedor </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  37 Outros valores a rec. e a pag. saldo
-                                  devedor{" "}
-                                </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  37 Outros valores a rec. e a pag. saldo credor{" "}
-                                </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>4 MEIOS MONETÁRIOS </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td> 42 depositos a prazo </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>43 depositos á ordem </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>45 Caixa </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>48 Conta Transitoria </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>5 CAPITAL E RESERVAS </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td> 51 Capital </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td> 52 Acções </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>55 Reservas legais </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>57 Reservas fins especias </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>6 PROVEITOS E GANHOS POR NATUREZA </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>61 Vendas </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>62 Prestacões de serviço </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>63 Outros proveiros operacionais </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  66 Proveitos e ganhos financeiros gerais{" "}
-                                </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  68 Outros proveitos e ganhos ñ operacionais{" "}
-                                </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>7 CUSTOS E PERDAS POR NATUREZA </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>71 Custos das existencias vendidas </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>72 Custos com o pessoal </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>73 Amortizaçoes de exercicio </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>75 Outros Custos e perdas operacionais </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>76 Custos e perdas financeiros gerais </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  78 Outros custos e perdas ñ operacionais{" "}
-                                </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>8 RESULTADOS </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td> Resultados do ano </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td> Correções de erros fundamentais </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>82 Resultados operacioanais </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>83 Resultados financeiros </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>85 Resultados ñ operacionais </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>87 Imposto sobre lucros </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>88 Resultados liquidos do exercicio </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                              <tr>
-                                <td>TOTAL </td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                                <td>75466785647</td>
-                                <td>253543</td>
-                              </tr>
-                            </tbody>
-                          </table>
+                          <div className="col-md-6 overflowing-left">
+                            <table className="table table-hover ">
+                              <thead>
+                                <tr className="sticky">
+                                  <th>
+                                    <h5>Janeiro</h5>
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Fevereiro</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Março</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Abril</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Maio</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Junho</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Julho</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Agosto</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Setembro</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Outubro</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Novembro</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Dezembro</h5>{" "}
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {dre &&
+                                  dre.map((e) => (
+                                    <>
+                                      <th>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.vendas}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.prestacao_de_servico}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.total}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.custos_das_mercadorias_vendidas
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.margem_bruta}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.outros_proveitos_operacionais
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.custos_de_distribuicao}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.custos_administrativos_pessoal
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.outros_custos_e_perdas_operacionais
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.resultados_operacionais_ebitda
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.amortizacoes}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.resultados_operacionais_ebit
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.resultados_financeiros}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.resultados_de_filias_e_associados
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.resultados_nao_operacionas
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.resultados_antes_de_imposto
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.imposto_sobre_os_rendimentos_provisional
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.resultados_liquidos_das_actividades_correntes
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.reultados_extraordinario}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.imposto_sobre_rendimetno}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.resultados_liquido_do_exercicio
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                      </th>
+                                    </>
+                                  ))}
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                       </div>
-
-                      {/* balanco */}
                       <div
-                        className="tab-pane fade "
-                        id="balanco-tab"
-                        role="tab"
+                        className="tab-pane fade overflowing"
+                        id="custom-tabs-one-balanco"
+                        role="tabpanel"
                         aria-labelledby="custom-tabs-one-balanco-tab"
                       >
-                        <table
-                          id="example2"
-                          className="table table-bordered table-hover dataTable dtr-inline"
-                          aria-describedby="example2_info"
-                        >
-                          <thead>
-                            <tr>
-                              <th scope="col">Designaçao</th>
-                              <th scope="col">Notas</th>
-                              <th scope="col">janeiro</th>
-                              <th scope="col">Fevereiro</th>
-                              <th scope="col">Março</th>
-                              <th scope="col">Abril</th>
-                              <th scope="col">Maio</th>
-                              <th scope="col">Junho</th>
-                              <th scope="col">julho</th>
-                              <th scope="col">Agosto</th>
-                              <th scope="col">Setembro</th>
-                              <th scope="col">Outubro</th>
-                              <th scope="col">Novembro </th>
-                              <th scope="col">Dezembro</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>ACTIVOS Ñ CORRENTES </td>
-                            </tr>
-                            <tr>
-                              <td> Imobilizações corporias </td>
-                              <td>4</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td>Imobilizações Incorporais </td>
-                              <td>5</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td>
-                                Investimentos em subsidiariase associadas{" "}
-                              </td>
-                              <td>6</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td>Outros activos financeiros </td>
-                              <td>7</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td>9 </td>
-                              <td></td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>253543</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>{" "}
-                            <tr>
-                              <td> ACTIVOS CORRENTES </td>
-                              <td>8</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>{" "}
-                            <tr>
-                              <td> Existencias</td>
-                              <td>9</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td>Contas a receber </td>
-                              <td>10</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td> Disponibilidades </td>
-                              <td>10</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td>Outros activos correntes </td>
-                              <td>11</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td>TOTAL DO ACTIVO </td>
-                              <td></td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td> CAPITAL PROPIO E PASSIVO </td>
-                              <td></td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td>CAPITAL PROPIO </td>
-                              <td></td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td>Capital </td>
-                              <td>12</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td>Reservas </td>
-                              <td>13</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td>Resultados transitados </td>
-                              <td>14</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td>Resultados do exercicio </td>
-                              <td></td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td> PASSIVO Ñ CORRENTE </td>
-                              <td></td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td> Emprestimos de medio e longo prazo </td>
-                              <td>15</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td> Impostos deferidos </td>
-                              <td>16</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td>Provisões para pensões </td>
-                              <td>17</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td> Provisões para Outros riscos e encargos </td>
-                              <td>18</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td> Outros passivos ñ correntes </td>
-                              <td>19</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td> PASSIVO CORRENTE </td>
-                              <td></td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td>Contas a pagar </td>
-                              <td>19</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td> Emprestimos de curto prazo </td>
-                              <td>20</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td>
-                                {" "}
-                                Parte cor.dos emp. a medio e longos prazos{" "}
-                              </td>
-                              <td>15</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td> Outros passivos Correntes </td>
-                              <td></td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                            <tr>
-                              <td> TOTAL DO CAPITAL PROPIO E PASSIVO </td>
-                              <td>21</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                              <td>75466785647</td>
-                              <td>253543</td>
-                            </tr>
-                          </tbody>
-                        </table>
+                        <div className="row">
+                          <div className="col-md-6" style={{ zIndex: 1000 }}>
+                            <table className="table table-hover">
+                              <thead>
+                                <tr>
+                                  <th>
+                                    <h5>Designação</h5>
+                                  </th>
+                                </tr>
+                              </thead>
+
+                              <tbody>
+                                <th>
+                                  <tr>
+                                    <th>
+                                      <strong>Activos não correntes</strong>
+                                    </th>
+                                  </tr>
+                                  <tr>
+                                    <th>Imobilizações Corporeas</th>
+                                    <th>4</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Imobilizações Incorporeas</th>
+                                    <th>5</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>
+                                      Investimento Subsidiarias e associadas
+                                    </th>
+                                    <th>6</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Outros Activos Financeiros</th>
+                                    <th>7</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Outros Activos não Correntes</th>
+                                    <th>9</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Total do Activos não correntes</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>
+                                      <strong>Activos Correntes</strong>
+                                    </th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Existências</th>
+                                    <th>8</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Contas a Receber</th>
+                                    <th>9</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Disponibilidades</th>
+                                    <th>10</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Outros Activos Correntes</th>
+                                    <th>11</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Total do Activo correntes</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>
+                                      <strong>Total do Activo</strong>
+                                    </th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>
+                                      {" "}
+                                      <h5>CAPITAL PROPRIO E PASSIVO</h5>{" "}
+                                    </th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>
+                                      <strong>Capital proprio</strong>
+                                    </th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Capital</th>
+                                    <th>12</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Reservas</th>
+                                    <th>13</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Resultados transitados</th>
+                                    <th>14</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Resultados do Exercicio</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>
+                                      <strong>Passivo não corrente</strong>
+                                    </th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Emp. de medio e longo prazo</th>
+                                    <th>15</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Impostos deferidos </th>
+                                    <th>16</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Provisões para pensões</th>
+                                    <th>17</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>
+                                      Provisões para outros riscos e encargos
+                                    </th>
+                                    <th>18</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Outros passivos não Correntes</th>
+                                    <th>19</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>
+                                      <strong>Passivo correntes</strong>
+                                    </th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Contas a Pagar</th>
+                                    <th>19</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Emprestimo de Curto prazo</th>
+                                    <th>20</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>
+                                      Parte cor. dos emp. a medio e longo prazo
+                                    </th>
+                                    <th>15</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>Outros passivos correntes</th>
+                                    <th>21</th>
+                                  </tr>
+
+                                  <tr>
+                                    <th>
+                                      <strong>
+                                        total do capital proprio e passivo
+                                      </strong>
+                                    </th>
+                                  </tr>
+                                </th>
+                              </tbody>
+                            </table>
+                          </div>
+
+                          <div className="col-md-6 overflowing-left">
+                            <table className="table table-hover ">
+                              <thead>
+                                <tr className="sticky">
+                                  <th>
+                                    <h5>Janeiro</h5>
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Fevereiro</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Março</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Abril</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Maio</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Junho</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Julho</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Agosto</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Setembro</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Outubro</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Novembro</h5>{" "}
+                                  </th>
+                                  <th>
+                                    {" "}
+                                    <h5>Dezembro</h5>{" "}
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {balanco &&
+                                  balanco.map((e) => (
+                                    <>
+                                      <th>
+                                        <tr>
+                                          <th>-</th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.imobilizacoes_corporeas}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.imobilizacoes_incorporeas
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.investimentos_em_subsidiarias
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.outros_activos_financeiros
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.outros_activos_nao_correntes
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <th>
+                                          <NumberFormat
+                                            value={e.total_activo_nao_correntes}
+                                            thousandSeparator="."
+                                            decimalSeparator=","
+                                            displayType="text"
+                                            decimalScale={2}
+                                          />
+                                        </th>
+                                        <tr>
+                                          <th>-</th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.existencias}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.contas_a_receber}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            {" "}
+                                            <NumberFormat
+                                              value={e.disponibilidades}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.outros_activos_correntes}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <th>
+                                          <NumberFormat
+                                            value={e.total_activo_nao_correntes}
+                                            thousandSeparator="."
+                                            decimalSeparator=","
+                                            displayType="text"
+                                            decimalScale={2}
+                                          />
+                                        </th>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                Number(
+                                                  e.total_activos_correntes
+                                                ) +
+                                                Number(
+                                                  e.total_activo_nao_correntes
+                                                )
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <h5>-</h5>
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>-</th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.capital}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.reservas}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.resultados_transitados}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.resultados_de_exercicio}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>-</th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.emprestimo_de_medio_e_longo_prazo
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            {" "}
+                                            <NumberFormat
+                                              value={e.impostos_deferidos}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.provisoes_para_pensoes}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.provisoes_para_outros_riscos_encargos
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.outros_passivos_nao_correntes
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>-</th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={e.contas_a_pagar}
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.emprestimo_de_curto_prazo
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.parte_cor_empr_media_longo_prazo
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.outros_passivos_correntes
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                        <tr>
+                                          <th>
+                                            <NumberFormat
+                                              value={
+                                                e.total_capital_poprio_e_passivo
+                                              }
+                                              thousandSeparator="."
+                                              decimalSeparator=","
+                                              displayType="text"
+                                              decimalScale={2}
+                                            />
+                                          </th>
+                                        </tr>
+                                      </th>
+                                    </>
+                                  ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
