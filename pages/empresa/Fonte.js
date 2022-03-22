@@ -1773,8 +1773,9 @@ export default function Fonte({ empresa }) {
         balancete2["55_credito"] + balancete2["57_credito"]
       );
 
-      balancoarray.resultados_transitados =
-        Number(balancete2["81_debito"] - balancete2["81_credito"]) * -1;
+      balancoarray.resultados_transitados = Number(
+        balancete2["81_debito"] - balancete2["81_credito"]
+      );
 
       balancoarray.resultados_de_exercicio =
         drmensal.resultados_liquido_do_exercicio;

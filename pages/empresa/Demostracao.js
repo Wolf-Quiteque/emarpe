@@ -7,10 +7,60 @@ import BarChart from "../../components/recharts/Barchart";
 import { useRef, useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import DataGrid from "react-data-grid";
+import "react-data-grid/dist/react-data-grid.css";
 
 export default function Demostracao({ empresa }) {
+  var rowdre = [];
+  var newrows = [];
+
   const [dre, setdre] = useState();
+
+  const [rows, setRows] = useState([
+    { designacao: "Vendas" },
+    { designacao: "Prestação de serviços" },
+    { designacao: "Total" },
+    { designacao: "Custos das mercadorias vendidas" },
+    { designacao: "Margem Bruto" },
+    { designacao: "Outros proveitos operacionasi" },
+    { designacao: "Custos de distribuição" },
+    { designacao: "Custos adiminstrativos (Pessoal" },
+    { designacao: "Outros custos e perdas operacionais" },
+    { designacao: "Resultados operacionais (EBITDA)" },
+    { designacao: "Amortizações" },
+    { designacao: "Resultados operacionais(EBIT)" },
+    { designacao: "Resultados Financeiros" },
+    { designacao: "Resultados de filhas e associadas" },
+    { designacao: "Resultados não operacionais" },
+    { designacao: "Resultados antes de imposto" },
+    { designacao: "Impostos sobre rendimentos (Provisional)" },
+    { designacao: " Resultados Liquidos das actividadesCorrentes" },
+    { designacao: "Resultados Extraordinarios" },
+    { designacao: "Imposto sobre o Rendimento" },
+    { designacao: "Resultados Liquido do exercicio" },
+  ]);
   const [balanco, setbalanco] = useState();
+  const columns = [
+    {
+      key: "designacao",
+      name: "Designação",
+      resizable: false,
+      frozen: true,
+      width: 300,
+    },
+    { key: "janeiro", name: "Janeiro", width: 200 },
+    { key: "fevereiro", name: "Fevereiro", width: 200 },
+    { key: "marco", name: "Março", width: 200 },
+    { key: "abril", name: "Abril", width: 200 },
+    { key: "maio", name: "Maio", width: 200 },
+    { key: "junho", name: "Junho", width: 200 },
+    { key: "julho", name: "Julho", width: 200 },
+    { key: "agosto", name: "Agosto", width: 2100 },
+    { key: "setembro", name: "Setembro", width: 2100 },
+    { key: "outubro", name: "Outubro", width: 2100 },
+    { key: "novembro", name: "Novembro", width: 200 },
+    { key: "dezembro", name: "Dezembro", width: 2100 },
+  ];
 
   const getDRE = async () => {
     const res = await fetch("/api/empresa/getdre", {
@@ -24,6 +74,377 @@ export default function Demostracao({ empresa }) {
     });
     const data = await res.json();
     setdre(data);
+    var datalenght = Number(data.length) - 1;
+
+    for (let index = 0; index < data.length; index++) {
+      if (index == datalenght) {
+        newrows.push({
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].vendas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "Vendas",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].vendas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].vendas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].vendas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].vendas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].vendas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].vendas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].vendas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].vendas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].vendas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].vendas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].vendas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+        });
+
+        newrows.push({
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].prestacao_de_servico}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "Prestação de serviços",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].prestacao_de_servico}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].prestacao_de_servico}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].prestacao_de_servico}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].prestacao_de_servico}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].prestacao_de_servico}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].prestacao_de_servico}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].prestacao_de_servico}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].prestacao_de_servico}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].prestacao_de_servico}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].prestacao_de_servico}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].prestacao_de_servico}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+        });
+
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].total,
+          designacao: "Total",
+          fevereiro: data[1] && data[1].total,
+        });
+
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].custos_das_mercadorias_vendidas,
+          designacao: "Custos das mercadorias vendidas",
+          fevereiro: data[1] && data[1].custos_das_mercadorias_vendidas,
+        });
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].margem_bruta,
+          designacao: "Margem Bruto",
+          fevereiro: data[1] && data[1].margem_bruta,
+        });
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].outros_proveitos_operacionais,
+          designacao: "Outros proveitos operacionasi",
+          fevereiro: data[1] && data[1].outros_proveitos_operacionais,
+        });
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].custos_de_distribuicao,
+          designacao: "Custos de distribuição",
+          fevereiro: data[1] && data[1].custos_de_distribuicao,
+        });
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].custos_administrativos_pessoal,
+          designacao: "Custos adiminstrativos (Pessoal",
+          fevereiro: data[1] && data[1].custos_administrativos_pessoal,
+        });
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].outros_custos_e_perdas_operacionais,
+          designacao: "Outros custos e perdas operacionais",
+          fevereiro: data[1] && data[1].outros_custos_e_perdas_operacionais,
+        });
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].resultados_operacionais_ebitda,
+          designacao: "Resultados operacionais (EBITDA)",
+          fevereiro: data[1] && data[1].resultados_operacionais_ebitda,
+        });
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].amortizacoes,
+          designacao: "Amortizações",
+          fevereiro: data[1] && data[1].amortizacoes,
+        });
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].resultados_operacionais_ebit,
+          designacao: "Resultados operacionais(EBIT)",
+          fevereiro: data[1] && data[1].resultados_operacionais_ebit,
+        });
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].resultados_financeiros,
+          designacao: "Resultados Financeiros",
+          fevereiro: data[1] && data[1].resultados_financeiros,
+        });
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].resultados_de_filias_e_associados,
+          designacao: "Resultados de filhas e associadas",
+          fevereiro: data[1] && data[1].resultados_de_filias_e_associados,
+        });
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].resultados_nao_operacionas,
+          designacao: "Resultados não operacionais",
+          fevereiro: data[1] && data[1].resultados_nao_operacionas,
+        });
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].resultados_antes_de_imposto,
+          designacao: "Resultados antes de imposto",
+          fevereiro: data[1] && data[1].resultados_antes_de_imposto,
+        });
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].imposto_sobre_os_rendimentos_provisional,
+          designacao: "Impostos sobre rendimentos (Provisional)",
+          fevereiro:
+            data[1] && data[1].imposto_sobre_os_rendimentos_provisional,
+        });
+        //----------
+
+        newrows.push({
+          janeiro:
+            data[0] && data[0].resultados_liquidos_das_actividades_correntes,
+          designacao: "Resultados Liquidos das actividadesCorrentes",
+          fevereiro:
+            data[1] && data[1].resultados_liquidos_das_actividades_correntes,
+        });
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].reultados_extraordinario,
+          designacao: "Resultados Extraordinarios",
+          fevereiro: data[1] && data[1].reultados_extraordinario,
+        });
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].imposto_sobre_rendimetno,
+          designacao: "Imposto sobre o Rendimento",
+          fevereiro: data[1] && data[1].imposto_sobre_rendimetno,
+        });
+        //----------
+
+        newrows.push({
+          janeiro: data[0] && data[0].resultados_liquido_do_exercicio,
+          designacao: "Resultados Liquido do exercicio",
+          fevereiro: data[1] && data[1].resultados_liquido_do_exercicio,
+        });
+        //----------
+      }
+    }
+    setRows(newrows);
   };
 
   const getBalanco = async () => {
@@ -38,8 +459,6 @@ export default function Demostracao({ empresa }) {
     });
     const data = await res.json();
     setbalanco(data);
-
-    console.log(data);
   };
 
   useEffect(() => {
@@ -56,7 +475,6 @@ export default function Demostracao({ empresa }) {
 
       <main>
         <ToastContainer />
-
         <div className="row">
           <div className="col-md-40">
             <h3 className="mt-3 mb-3">Demostração {empresa && empresa.nome}</h3>
@@ -125,461 +543,23 @@ export default function Demostracao({ empresa }) {
                         aria-labelledby="custom-tabs-one-balancete-tab"
                       ></div>
                       <div
-                        className="tab-pane fade show active overflowing"
+                        className="tab-pane fade show active "
                         id="custom-tabs-one-DRE"
                         role="tabpanel"
                         aria-labelledby="custom-tabs-one-DRE-tab"
                       >
-                        <div className="row">
-                          <div className="col-md-6" style={{ zIndex: 1000 }}>
-                            <table className="table table-hover">
-                              <thead>
-                                <tr>
-                                  <th>
-                                    <h5>Designação</h5>
-                                  </th>
-                                </tr>
-                              </thead>
-
-                              <tbody>
-                                <th>
-                                  <tr>
-                                    <th>Vendas</th>
-                                    <th>22</th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Prestação de serviços</th>
-                                    <th>23</th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Total</th>
-                                    <th></th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Custos das mercadorias vendidas</th>
-                                    <th>24</th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Margem Bruto</th>
-                                    <th></th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Outros proveitos operacionasi</th>
-                                    <th></th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Custos de distribuição</th>
-                                    <th></th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Custos adiminstrativos (Pessoal)</th>
-                                    <th></th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Outros custos e perdas operacionais</th>
-                                    <th></th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Resultados operacionais (EBITDA)</th>
-                                    <th></th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Amortizações</th>
-                                    <th></th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Resultados operacionais(EBIT)</th>
-                                    <th></th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Resultados Financeiros</th>
-                                    <th>31</th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Resultados de filhas e associadas</th>
-                                    <th>32</th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Resultados não operacionais</th>
-                                    <th>33</th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Resultados antes de imposto</th>
-                                    <th></th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>
-                                      Impostos sobre rendimentos (Provisional)
-                                    </th>
-                                    <th>35</th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>
-                                      Resultados Liquidos das actividades
-                                      Correntes
-                                    </th>
-                                    <th></th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Resultados Extraordinarios</th>
-                                    <th>34</th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Imposto sobre o Rendimento </th>
-                                    <th>35</th>
-                                  </tr>
-
-                                  <tr>
-                                    <th>Resultados Liquido do exercicio</th>
-                                    <th>34</th>
-                                  </tr>
-                                </th>
-                              </tbody>
-                            </table>
-                          </div>
-
-                          <div className="col-md-6 overflowing-left">
-                            <table className="table table-hover ">
-                              <thead>
-                                <tr className="sticky">
-                                  <th>
-                                    <h5>Janeiro</h5>
-                                  </th>
-                                  <th>
-                                    {" "}
-                                    <h5>Fevereiro</h5>{" "}
-                                  </th>
-                                  <th>
-                                    {" "}
-                                    <h5>Março</h5>{" "}
-                                  </th>
-                                  <th>
-                                    {" "}
-                                    <h5>Abril</h5>{" "}
-                                  </th>
-                                  <th>
-                                    {" "}
-                                    <h5>Maio</h5>{" "}
-                                  </th>
-                                  <th>
-                                    {" "}
-                                    <h5>Junho</h5>{" "}
-                                  </th>
-                                  <th>
-                                    {" "}
-                                    <h5>Julho</h5>{" "}
-                                  </th>
-                                  <th>
-                                    {" "}
-                                    <h5>Agosto</h5>{" "}
-                                  </th>
-                                  <th>
-                                    {" "}
-                                    <h5>Setembro</h5>{" "}
-                                  </th>
-                                  <th>
-                                    {" "}
-                                    <h5>Outubro</h5>{" "}
-                                  </th>
-                                  <th>
-                                    {" "}
-                                    <h5>Novembro</h5>{" "}
-                                  </th>
-                                  <th>
-                                    {" "}
-                                    <h5>Dezembro</h5>{" "}
-                                  </th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                {dre &&
-                                  dre.map((e) => (
-                                    <>
-                                      <th>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={e.vendas}
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={e.prestacao_de_servico}
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={e.total}
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={
-                                                e.custos_das_mercadorias_vendidas
-                                              }
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={e.margem_bruta}
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={
-                                                e.outros_proveitos_operacionais
-                                              }
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={e.custos_de_distribuicao}
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={
-                                                e.custos_administrativos_pessoal
-                                              }
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={
-                                                e.outros_custos_e_perdas_operacionais
-                                              }
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={
-                                                e.resultados_operacionais_ebitda
-                                              }
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={e.amortizacoes}
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={
-                                                e.resultados_operacionais_ebit
-                                              }
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={e.resultados_financeiros}
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={
-                                                e.resultados_de_filias_e_associados
-                                              }
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={
-                                                e.resultados_nao_operacionas
-                                              }
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={
-                                                e.resultados_antes_de_imposto
-                                              }
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={
-                                                e.imposto_sobre_os_rendimentos_provisional
-                                              }
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={
-                                                e.resultados_liquidos_das_actividades_correntes
-                                              }
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={e.reultados_extraordinario}
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={e.imposto_sobre_rendimetno}
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                        <tr>
-                                          <th>
-                                            <NumberFormat
-                                              value={
-                                                e.resultados_liquido_do_exercicio
-                                              }
-                                              thousandSeparator="."
-                                              decimalSeparator=","
-                                              displayType="text"
-                                              decimalScale={2}
-                                            />
-                                          </th>
-                                        </tr>
-                                      </th>
-                                    </>
-                                  ))}
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
+                        <DataGrid
+                          columns={columns}
+                          rows={rows}
+                          style={{
+                            height: "650px",
+                            fontSize: "16px",
+                            width: "1100px",
+                          }}
+                        />
                       </div>
                       <div
-                        className="tab-pane fade overflowing"
+                        className="tab-pane fade "
                         id="custom-tabs-one-balanco"
                         role="tabpanel"
                         aria-labelledby="custom-tabs-one-balanco-tab"
