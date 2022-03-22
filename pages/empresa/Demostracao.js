@@ -307,139 +307,2169 @@ export default function Demostracao({ empresa }) {
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].total,
-          designacao: "Total",
-          fevereiro: data[1] && data[1].total,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].total}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "total",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].total}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].total}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].total}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].total}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].total}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].total}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].total}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].total}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].total}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].total}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].total}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
 
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].custos_das_mercadorias_vendidas,
-          designacao: "Custos das mercadorias vendidas",
-          fevereiro: data[1] && data[1].custos_das_mercadorias_vendidas,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].custos_das_mercadorias_vendidas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "custos_das_mercadorias_vendidas",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].custos_das_mercadorias_vendidas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].custos_das_mercadorias_vendidas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].custos_das_mercadorias_vendidas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].custos_das_mercadorias_vendidas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].custos_das_mercadorias_vendidas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].custos_das_mercadorias_vendidas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].custos_das_mercadorias_vendidas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].custos_das_mercadorias_vendidas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].custos_das_mercadorias_vendidas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].custos_das_mercadorias_vendidas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].custos_das_mercadorias_vendidas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].margem_bruta,
-          designacao: "Margem Bruto",
-          fevereiro: data[1] && data[1].margem_bruta,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].margem_bruta}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "margem_bruta",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].margem_bruta}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].margem_bruta}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].margem_bruta}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].margem_bruta}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].margem_bruta}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].margem_bruta}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].margem_bruta}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].margem_bruta}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].margem_bruta}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].margem_bruta}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].margem_bruta}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].outros_proveitos_operacionais,
-          designacao: "Outros proveitos operacionasi",
-          fevereiro: data[1] && data[1].outros_proveitos_operacionais,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].outros_proveitos_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "outros_proveitos_operacionais",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].outros_proveitos_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].outros_proveitos_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].outros_proveitos_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].outros_proveitos_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].outros_proveitos_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].outros_proveitos_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].outros_proveitos_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].outros_proveitos_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].outros_proveitos_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].outros_proveitos_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].outros_proveitos_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].custos_de_distribuicao,
-          designacao: "Custos de distribuição",
-          fevereiro: data[1] && data[1].custos_de_distribuicao,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].custos_de_distribuicao}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "custos_de_distribuicao",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].custos_de_distribuicao}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].custos_de_distribuicao}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].custos_de_distribuicao}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].custos_de_distribuicao}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].custos_de_distribuicao}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].custos_de_distribuicao}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].custos_de_distribuicao}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].custos_de_distribuicao}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].custos_de_distribuicao}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].custos_de_distribuicao}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].custos_de_distribuicao}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].custos_administrativos_pessoal,
-          designacao: "Custos adiminstrativos (Pessoal",
-          fevereiro: data[1] && data[1].custos_administrativos_pessoal,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].custos_administrativos_pessoal}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "custos_administrativos_pessoal",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].custos_administrativos_pessoal}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].custos_administrativos_pessoal}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].custos_administrativos_pessoal}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].custos_administrativos_pessoal}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].custos_administrativos_pessoal}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].custos_administrativos_pessoal}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].custos_administrativos_pessoal}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].custos_administrativos_pessoal}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].custos_administrativos_pessoal}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].custos_administrativos_pessoal}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].custos_administrativos_pessoal}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].outros_custos_e_perdas_operacionais,
-          designacao: "Outros custos e perdas operacionais",
-          fevereiro: data[1] && data[1].outros_custos_e_perdas_operacionais,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].outros_custos_e_perdas_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "outros_custos_e_perdas_operacionais",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].outros_custos_e_perdas_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].outros_custos_e_perdas_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].outros_custos_e_perdas_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].outros_custos_e_perdas_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].outros_custos_e_perdas_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].outros_custos_e_perdas_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].outros_custos_e_perdas_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].outros_custos_e_perdas_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].outros_custos_e_perdas_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].outros_custos_e_perdas_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].outros_custos_e_perdas_operacionais}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].resultados_operacionais_ebitda,
-          designacao: "Resultados operacionais (EBITDA)",
-          fevereiro: data[1] && data[1].resultados_operacionais_ebitda,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].resultados_operacionais_ebitda}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "resultados_operacionais_ebitda",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].resultados_operacionais_ebitda}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].resultados_operacionais_ebitda}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].resultados_operacionais_ebitda}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].resultados_operacionais_ebitda}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].resultados_operacionais_ebitda}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].resultados_operacionais_ebitda}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].resultados_operacionais_ebitda}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].resultados_operacionais_ebitda}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].resultados_operacionais_ebitda}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].resultados_operacionais_ebitda}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].resultados_operacionais_ebitda}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].amortizacoes,
-          designacao: "Amortizações",
-          fevereiro: data[1] && data[1].amortizacoes,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].amortizacoes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "amortizacoes",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].amortizacoes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].amortizacoes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].amortizacoes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].amortizacoes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].amortizacoes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].amortizacoes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].amortizacoes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].amortizacoes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].amortizacoes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].amortizacoes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].amortizacoes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].resultados_operacionais_ebit,
-          designacao: "Resultados operacionais(EBIT)",
-          fevereiro: data[1] && data[1].resultados_operacionais_ebit,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].resultados_operacionais_ebit}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "resultados_operacionais_ebit",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].resultados_operacionais_ebit}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].resultados_operacionais_ebit}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].resultados_operacionais_ebit}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].resultados_operacionais_ebit}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].resultados_operacionais_ebit}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].resultados_operacionais_ebit}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].resultados_operacionais_ebit}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].resultados_operacionais_ebit}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].resultados_operacionais_ebit}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].resultados_operacionais_ebit}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].resultados_operacionais_ebit}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].resultados_financeiros,
-          designacao: "Resultados Financeiros",
-          fevereiro: data[1] && data[1].resultados_financeiros,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].resultados_financeiros}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "resultados_financeiros",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].resultados_financeiros}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].resultados_financeiros}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].resultados_financeiros}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].resultados_financeiros}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].resultados_financeiros}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].resultados_financeiros}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].resultados_financeiros}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].resultados_financeiros}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].resultados_financeiros}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].resultados_financeiros}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].resultados_financeiros}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].resultados_de_filias_e_associados,
-          designacao: "Resultados de filhas e associadas",
-          fevereiro: data[1] && data[1].resultados_de_filias_e_associados,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].resultados_de_filias_e_associados}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "resultados_de_filias_e_associados",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].resultados_de_filias_e_associados}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].resultados_de_filias_e_associados}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].resultados_de_filias_e_associados}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].resultados_de_filias_e_associados}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].resultados_de_filias_e_associados}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].resultados_de_filias_e_associados}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].resultados_de_filias_e_associados}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].resultados_de_filias_e_associados}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].resultados_de_filias_e_associados}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].resultados_de_filias_e_associados}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].resultados_de_filias_e_associados}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].resultados_nao_operacionas,
-          designacao: "Resultados não operacionais",
-          fevereiro: data[1] && data[1].resultados_nao_operacionas,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].resultados_nao_operacionas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "resultados_nao_operacionas",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].resultados_nao_operacionas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].resultados_nao_operacionas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].resultados_nao_operacionas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].resultados_nao_operacionas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].resultados_nao_operacionas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].resultados_nao_operacionas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].resultados_nao_operacionas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].resultados_nao_operacionas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].resultados_nao_operacionas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].resultados_nao_operacionas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].resultados_nao_operacionas}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].resultados_antes_de_imposto,
-          designacao: "Resultados antes de imposto",
-          fevereiro: data[1] && data[1].resultados_antes_de_imposto,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].resultados_antes_de_imposto}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "resultados_antes_de_imposto",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].resultados_antes_de_imposto}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].resultados_antes_de_imposto}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].resultados_antes_de_imposto}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].resultados_antes_de_imposto}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].resultados_antes_de_imposto}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].resultados_antes_de_imposto}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].resultados_antes_de_imposto}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].resultados_antes_de_imposto}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].resultados_antes_de_imposto}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].resultados_antes_de_imposto}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].resultados_antes_de_imposto}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].imposto_sobre_os_rendimentos_provisional,
-          designacao: "Impostos sobre rendimentos (Provisional)",
-          fevereiro:
-            data[1] && data[1].imposto_sobre_os_rendimentos_provisional,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].imposto_sobre_os_rendimentos_provisional}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "imposto_sobre_os_rendimentos_provisional",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].imposto_sobre_os_rendimentos_provisional}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].imposto_sobre_os_rendimentos_provisional}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].imposto_sobre_os_rendimentos_provisional}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].imposto_sobre_os_rendimentos_provisional}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].imposto_sobre_os_rendimentos_provisional}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].imposto_sobre_os_rendimentos_provisional}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].imposto_sobre_os_rendimentos_provisional}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].imposto_sobre_os_rendimentos_provisional}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].imposto_sobre_os_rendimentos_provisional}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].imposto_sobre_os_rendimentos_provisional}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].imposto_sobre_os_rendimentos_provisional}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
 
         newrows.push({
-          janeiro:
-            data[0] && data[0].resultados_liquidos_das_actividades_correntes,
-          designacao: "Resultados Liquidos das actividadesCorrentes",
-          fevereiro:
-            data[1] && data[1].resultados_liquidos_das_actividades_correntes,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].resultados_liquidos_das_actividades_correntes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "resultados_liquidos_das_actividades_correntes",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].resultados_liquidos_das_actividades_correntes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].resultados_liquidos_das_actividades_correntes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].resultados_liquidos_das_actividades_correntes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].resultados_liquidos_das_actividades_correntes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].resultados_liquidos_das_actividades_correntes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].resultados_liquidos_das_actividades_correntes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].resultados_liquidos_das_actividades_correntes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].resultados_liquidos_das_actividades_correntes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].resultados_liquidos_das_actividades_correntes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].resultados_liquidos_das_actividades_correntes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].resultados_liquidos_das_actividades_correntes}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].reultados_extraordinario,
-          designacao: "Resultados Extraordinarios",
-          fevereiro: data[1] && data[1].reultados_extraordinario,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].reultados_extraordinario}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "reultados_extraordinario",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].reultados_extraordinario}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].reultados_extraordinario}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].reultados_extraordinario}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].reultados_extraordinario}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].reultados_extraordinario}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].reultados_extraordinario}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].reultados_extraordinario}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].reultados_extraordinario}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].reultados_extraordinario}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].reultados_extraordinario}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].reultados_extraordinario}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].imposto_sobre_rendimetno,
-          designacao: "Imposto sobre o Rendimento",
-          fevereiro: data[1] && data[1].imposto_sobre_rendimetno,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].imposto_sobre_rendimetno}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "imposto_sobre_rendimetno",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].imposto_sobre_rendimetno}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].imposto_sobre_rendimetno}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].imposto_sobre_rendimetno}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].imposto_sobre_rendimetno}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].imposto_sobre_rendimetno}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].imposto_sobre_rendimetno}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].imposto_sobre_rendimetno}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].imposto_sobre_rendimetno}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].imposto_sobre_rendimetno}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].imposto_sobre_rendimetno}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].imposto_sobre_rendimetno}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
 
         newrows.push({
-          janeiro: data[0] && data[0].resultados_liquido_do_exercicio,
-          designacao: "Resultados Liquido do exercicio",
-          fevereiro: data[1] && data[1].resultados_liquido_do_exercicio,
+          janeiro: data[0] && (
+            <NumberFormat
+              value={data[0].resultados_liquido_do_exercicio}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          designacao: "resultados_liquido_do_exercicio",
+          fevereiro: data[1] && (
+            <NumberFormat
+              value={data[1].resultados_liquido_do_exercicio}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+
+          marco: data[2] && (
+            <NumberFormat
+              value={data[2].resultados_liquido_do_exercicio}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          abril: data[3] && (
+            <NumberFormat
+              value={data[3].resultados_liquido_do_exercicio}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          maio: data[4] && (
+            <NumberFormat
+              value={data[4].resultados_liquido_do_exercicio}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          junho: data[5] && (
+            <NumberFormat
+              value={data[5].resultados_liquido_do_exercicio}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          julho: data[6] && (
+            <NumberFormat
+              value={data[6].resultados_liquido_do_exercicio}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          agosto: data[7] && (
+            <NumberFormat
+              value={data[7].resultados_liquido_do_exercicio}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          setembro: data[8] && (
+            <NumberFormat
+              value={data[8].resultados_liquido_do_exercicio}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          outubro: data[9] && (
+            <NumberFormat
+              value={data[9].resultados_liquido_do_exercicio}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          novembro: data[10] && (
+            <NumberFormat
+              value={data[10].resultados_liquido_do_exercicio}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
+          dezembro: data[11] && (
+            <NumberFormat
+              value={data[11].resultados_liquido_do_exercicio}
+              thousandSeparator="."
+              decimalSeparator=","
+              displayType="text"
+              decimalScale={2}
+            />
+          ),
         });
         //----------
       }
