@@ -1,7 +1,7 @@
 import React from "react";
 import {
-  BarChart,
-  Bar,
+  LineChart,
+  Line,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -11,25 +11,29 @@ import {
 
 export default function App({ data }) {
   return (
-    <BarChart
-      width={535}
+    <LineChart
+      width={530}
       height={300}
       data={data}
       margin={{
         top: 5,
         right: 10,
-        left: -11,
+        left: 30,
         bottom: 5,
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
+      <XAxis dataKey="name" padding={{ left: 10, right: 0 }} />
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="Investimento" fill="#ffa000" />
-      <Bar dataKey="Vol_Negócio" fill="#64dd17" />
-      <Bar dataKey="Fluxo_Caixa" fill="#00b0ff" />
-    </BarChart>
+      <Line
+        type="monotone"
+        dataKey="Valor_Do_Capital"
+        stroke="#8884d8"
+        activeDot={{ r: 8 }}
+      />
+      <Line type="monotone" dataKey="Valor_Da_Firma" stroke="#82ca9d" />
+    </LineChart>
   );
 }

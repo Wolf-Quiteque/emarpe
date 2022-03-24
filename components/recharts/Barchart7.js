@@ -27,9 +27,8 @@ export default function App({ data }) {
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="Investimento" fill="#ffa000" />
-      <Bar dataKey="Vol_Negócio" fill="#64dd17" />
-      <Bar dataKey="Fluxo_Caixa" fill="#00b0ff" />
+      <Bar dataKey="Lucro_Por_Ação" fill="#9C27B0" />
+      <Bar dataKey="Lucro_Por_Ação_Acumulada" fill="#827717" />
     </BarChart>
   );
 }

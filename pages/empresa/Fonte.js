@@ -1762,7 +1762,7 @@ export default function Fonte({ empresa }) {
 
       balancoarray.total_activos = Number(
         balancoarray.total_activos_correntes +
-          balancoarray.total_activo_nao_corrente
+          balancoarray.total_activo_nao_correntes
       );
 
       //Capital Propio
@@ -1774,7 +1774,7 @@ export default function Fonte({ empresa }) {
       );
 
       balancoarray.resultados_transitados = Number(
-        balancete2["81_debito"] - balancete2["81_credito"]
+        balancete2["81_credito"] - balancete2["81_debito"]
       );
 
       balancoarray.resultados_de_exercicio =
