@@ -5500,17 +5500,16 @@ export default function Demostracao({ empresa }) {
                         role="tabpanel"
                         aria-labelledby="custom-tabs-one-DRE-tab"
                       >
-                        {/* {rows && (
+                        {rows && (
                           <DataGrid
                             columns={columns}
-                            rows={rows}
                             style={{
                               height: "650px",
                               fontSize: "16px",
                               width: "1100px",
                             }}
                           />
-                        )} */}
+                        )}
                       </div>
                       <div
                         className="tab-pane fade "
