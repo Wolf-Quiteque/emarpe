@@ -1,11 +1,12 @@
 import Head from "next/head";
 import { ObjectId } from "bson";
-
+import dynamic from "next/dynamic";
 import NumberFormat from "react-number-format";
 import { useRef, useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import DataGrid from "../../components/Datagrid/DataGrid";
+import "react-data-grid/dist/react-data-grid.css";
+const DataGrid = dynamic(() => import("react-data-grid"));
 
 export default function Demostracao({ empresa }) {
   var balancorow = [];
@@ -5499,7 +5500,17 @@ export default function Demostracao({ empresa }) {
                         role="tabpanel"
                         aria-labelledby="custom-tabs-one-DRE-tab"
                       >
-                        {rows && <DataGrid columns={columns} rows={rows} />}
+                        {rows && (
+                          <DataGrid
+                            columns={columns}
+                            rows={rows}
+                            style={{
+                              height: "650px",
+                              fontSize: "16px",
+                              width: "1100px",
+                            }}
+                          />
+                        )}
                       </div>
                       <div
                         className="tab-pane fade "
@@ -5507,12 +5518,17 @@ export default function Demostracao({ empresa }) {
                         role="tabpanel"
                         aria-labelledby="custom-tabs-one-balanco-tab"
                       >
-                        {balancorows && (
+                        {/* {balancorows && (
                           <DataGrid
                             columns={balancocolumns}
                             rows={balancorows}
+                            style={{
+                              height: "650px",
+                              fontSize: "16px",
+                              width: "1100px",
+                            }}
                           />
-                        )}
+                        )} */}
                       </div>
                     </div>
                   </div>
