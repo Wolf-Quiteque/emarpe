@@ -5502,15 +5502,17 @@ export default function Demostracao({ empresa }) {
                         role="tabpanel"
                         aria-labelledby="custom-tabs-one-DRE-tab"
                       >
-                        <DataGrid
-                          columns={columns}
-                          rows={rows}
-                          style={{
-                            height: "650px",
-                            fontSize: "16px",
-                            width: "1100px",
-                          }}
-                        />
+                        {rows && (
+                          <DataGrid
+                            columns={columns}
+                            rows={rows}
+                            style={{
+                              height: "650px",
+                              fontSize: "16px",
+                              width: "1100px",
+                            }}
+                          />
+                        )}
                       </div>
                       <div
                         className="tab-pane fade "
@@ -5518,15 +5520,17 @@ export default function Demostracao({ empresa }) {
                         role="tabpanel"
                         aria-labelledby="custom-tabs-one-balanco-tab"
                       >
-                        <DataGrid
-                          columns={balancocolumns}
-                          rows={balancorows}
-                          style={{
-                            height: "650px",
-                            fontSize: "16px",
-                            width: "1100px",
-                          }}
-                        />
+                        {balancorows && (
+                          <DataGrid
+                            columns={balancocolumns}
+                            rows={balancorows}
+                            style={{
+                              height: "650px",
+                              fontSize: "16px",
+                              width: "1100px",
+                            }}
+                          />
+                        )}
                       </div>
                     </div>
                   </div>
