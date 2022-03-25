@@ -1,9 +1,7 @@
 import Head from "next/head";
 import { ObjectId } from "bson";
 
-import Link from "next/link";
 import NumberFormat from "react-number-format";
-import BarChart from "../../components/recharts/Barchart";
 import { useRef, useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -5502,7 +5500,7 @@ export default function Demostracao({ empresa }) {
                         role="tabpanel"
                         aria-labelledby="custom-tabs-one-DRE-tab"
                       >
-                        {rows && (
+                        {/* {rows && (
                           <DataGrid
                             columns={columns}
                             rows={rows}
@@ -5512,7 +5510,7 @@ export default function Demostracao({ empresa }) {
                               width: "1100px",
                             }}
                           />
-                        )}
+                        )} */}
                       </div>
                       <div
                         className="tab-pane fade "
@@ -5520,7 +5518,7 @@ export default function Demostracao({ empresa }) {
                         role="tabpanel"
                         aria-labelledby="custom-tabs-one-balanco-tab"
                       >
-                        {balancorows && (
+                        {/* {balancorows && (
                           <DataGrid
                             columns={balancocolumns}
                             rows={balancorows}
@@ -5530,7 +5528,7 @@ export default function Demostracao({ empresa }) {
                               width: "1100px",
                             }}
                           />
-                        )}
+                        )} */}
                       </div>
                     </div>
                   </div>
