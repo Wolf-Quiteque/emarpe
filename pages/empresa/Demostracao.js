@@ -6,7 +6,7 @@ import { useRef, useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-data-grid/dist/react-data-grid.css";
-const DataGrid = dynamic(() => import("react-data-grid"));
+const DataGrid = dynamic(() => import("react-data-grid"), { ssr: false });
 
 export default function Demostracao({ empresa }) {
   var balancorow = [];
