@@ -5518,7 +5518,7 @@ export default function Demostracao({ empresa }) {
                         role="tabpanel"
                         aria-labelledby="custom-tabs-one-balanco-tab"
                       >
-                        {/* {balancorows && (
+                        {balancorows && (
                           <DataGrid
                             columns={balancocolumns}
                             rows={balancorows}
@@ -5528,7 +5528,7 @@ export default function Demostracao({ empresa }) {
                               width: "1100px",
                             }}
                           />
-                        )} */}
+                        )}
                       </div>
                     </div>
                   </div>
