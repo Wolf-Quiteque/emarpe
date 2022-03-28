@@ -357,8 +357,6 @@ export default function Demostracao({ empresa }) {
         newrows.push({
           janeiro: data[0] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[0].total}
               thousandSeparator="."
               decimalSeparator=","
@@ -366,11 +364,9 @@ export default function Demostracao({ empresa }) {
               decimalScale={2}
             />
           ),
-          designacao: <span style={{ fontWeight: "900" }}>Total</span>,
+          designacao: "total",
           fevereiro: data[1] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[1].total}
               thousandSeparator="."
               decimalSeparator=","
@@ -381,8 +377,6 @@ export default function Demostracao({ empresa }) {
 
           marco: data[2] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[2].total}
               thousandSeparator="."
               decimalSeparator=","
@@ -392,8 +386,6 @@ export default function Demostracao({ empresa }) {
           ),
           abril: data[3] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[3].total}
               thousandSeparator="."
               decimalSeparator=","
@@ -403,8 +395,6 @@ export default function Demostracao({ empresa }) {
           ),
           maio: data[4] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[4].total}
               thousandSeparator="."
               decimalSeparator=","
@@ -414,8 +404,6 @@ export default function Demostracao({ empresa }) {
           ),
           junho: data[5] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[5].total}
               thousandSeparator="."
               decimalSeparator=","
@@ -425,8 +413,6 @@ export default function Demostracao({ empresa }) {
           ),
           julho: data[6] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[6].total}
               thousandSeparator="."
               decimalSeparator=","
@@ -436,8 +422,6 @@ export default function Demostracao({ empresa }) {
           ),
           agosto: data[7] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[7].total}
               thousandSeparator="."
               decimalSeparator=","
@@ -447,8 +431,6 @@ export default function Demostracao({ empresa }) {
           ),
           setembro: data[8] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[8].total}
               thousandSeparator="."
               decimalSeparator=","
@@ -458,8 +440,6 @@ export default function Demostracao({ empresa }) {
           ),
           outubro: data[9] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[9].total}
               thousandSeparator="."
               decimalSeparator=","
@@ -469,8 +449,6 @@ export default function Demostracao({ empresa }) {
           ),
           novembro: data[10] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[10].total}
               thousandSeparator="."
               decimalSeparator=","
@@ -480,8 +458,6 @@ export default function Demostracao({ empresa }) {
           ),
           dezembro: data[11] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[11].total}
               thousandSeparator="."
               decimalSeparator=","
@@ -610,8 +586,6 @@ export default function Demostracao({ empresa }) {
         newrows.push({
           janeiro: data[0] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[0].margem_bruta}
               thousandSeparator="."
               decimalSeparator=","
@@ -619,11 +593,9 @@ export default function Demostracao({ empresa }) {
               decimalScale={2}
             />
           ),
-          designacao: <span style={{ fontWeight: "900" }}>Margem Bruta</span>,
+          designacao: "Margem Bruta",
           fevereiro: data[1] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[1].margem_bruta}
               thousandSeparator="."
               decimalSeparator=","
@@ -634,8 +606,6 @@ export default function Demostracao({ empresa }) {
 
           marco: data[2] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[2].margem_bruta}
               thousandSeparator="."
               decimalSeparator=","
@@ -645,8 +615,6 @@ export default function Demostracao({ empresa }) {
           ),
           abril: data[3] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[3].margem_bruta}
               thousandSeparator="."
               decimalSeparator=","
@@ -656,8 +624,6 @@ export default function Demostracao({ empresa }) {
           ),
           maio: data[4] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[4].margem_bruta}
               thousandSeparator="."
               decimalSeparator=","
@@ -667,8 +633,6 @@ export default function Demostracao({ empresa }) {
           ),
           junho: data[5] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[5].margem_bruta}
               thousandSeparator="."
               decimalSeparator=","
@@ -678,8 +642,6 @@ export default function Demostracao({ empresa }) {
           ),
           julho: data[6] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[6].margem_bruta}
               thousandSeparator="."
               decimalSeparator=","
@@ -689,8 +651,6 @@ export default function Demostracao({ empresa }) {
           ),
           agosto: data[7] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[7].margem_bruta}
               thousandSeparator="."
               decimalSeparator=","
@@ -700,8 +660,6 @@ export default function Demostracao({ empresa }) {
           ),
           setembro: data[8] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[8].margem_bruta}
               thousandSeparator="."
               decimalSeparator=","
@@ -711,8 +669,6 @@ export default function Demostracao({ empresa }) {
           ),
           outubro: data[9] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[9].margem_bruta}
               thousandSeparator="."
               decimalSeparator=","
@@ -722,8 +678,6 @@ export default function Demostracao({ empresa }) {
           ),
           novembro: data[10] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[10].margem_bruta}
               thousandSeparator="."
               decimalSeparator=","
@@ -733,8 +687,6 @@ export default function Demostracao({ empresa }) {
           ),
           dezembro: data[11] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[11].margem_bruta}
               thousandSeparator="."
               decimalSeparator=","
@@ -744,8 +696,6 @@ export default function Demostracao({ empresa }) {
           ),
         });
         //----------
-
-        newrows.push({ designacao: "" });
 
         newrows.push({
           janeiro: data[0] && (
@@ -1206,8 +1156,6 @@ export default function Demostracao({ empresa }) {
         newrows.push({
           janeiro: data[0] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[0].resultados_operacionais_ebitda}
               thousandSeparator="."
               decimalSeparator=","
@@ -1215,15 +1163,9 @@ export default function Demostracao({ empresa }) {
               decimalScale={2}
             />
           ),
-          designacao: (
-            <span style={{ fontWeight: "900" }}>
-              Resultados Operacionais Ebitda
-            </span>
-          ),
+          designacao: "Resultados Operacionais Ebitda",
           fevereiro: data[1] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[1].resultados_operacionais_ebitda}
               thousandSeparator="."
               decimalSeparator=","
@@ -1234,8 +1176,6 @@ export default function Demostracao({ empresa }) {
 
           marco: data[2] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[2].resultados_operacionais_ebitda}
               thousandSeparator="."
               decimalSeparator=","
@@ -1245,8 +1185,6 @@ export default function Demostracao({ empresa }) {
           ),
           abril: data[3] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[3].resultados_operacionais_ebitda}
               thousandSeparator="."
               decimalSeparator=","
@@ -1256,8 +1194,6 @@ export default function Demostracao({ empresa }) {
           ),
           maio: data[4] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[4].resultados_operacionais_ebitda}
               thousandSeparator="."
               decimalSeparator=","
@@ -1267,8 +1203,6 @@ export default function Demostracao({ empresa }) {
           ),
           junho: data[5] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[5].resultados_operacionais_ebitda}
               thousandSeparator="."
               decimalSeparator=","
@@ -1278,8 +1212,6 @@ export default function Demostracao({ empresa }) {
           ),
           julho: data[6] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[6].resultados_operacionais_ebitda}
               thousandSeparator="."
               decimalSeparator=","
@@ -1289,8 +1221,6 @@ export default function Demostracao({ empresa }) {
           ),
           agosto: data[7] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[7].resultados_operacionais_ebitda}
               thousandSeparator="."
               decimalSeparator=","
@@ -1300,8 +1230,6 @@ export default function Demostracao({ empresa }) {
           ),
           setembro: data[8] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[8].resultados_operacionais_ebitda}
               thousandSeparator="."
               decimalSeparator=","
@@ -1311,8 +1239,6 @@ export default function Demostracao({ empresa }) {
           ),
           outubro: data[9] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[9].resultados_operacionais_ebitda}
               thousandSeparator="."
               decimalSeparator=","
@@ -1322,8 +1248,6 @@ export default function Demostracao({ empresa }) {
           ),
           novembro: data[10] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[10].resultados_operacionais_ebitda}
               thousandSeparator="."
               decimalSeparator=","
@@ -1333,8 +1257,6 @@ export default function Demostracao({ empresa }) {
           ),
           dezembro: data[11] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[11].resultados_operacionais_ebitda}
               thousandSeparator="."
               decimalSeparator=","
@@ -1344,8 +1266,6 @@ export default function Demostracao({ empresa }) {
           ),
         });
         //----------
-
-        newrows.push({ designacao: "" });
 
         newrows.push({
           janeiro: data[0] && (
@@ -1464,8 +1384,6 @@ export default function Demostracao({ empresa }) {
         newrows.push({
           janeiro: data[0] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[0].resultados_operacionais_ebit}
               thousandSeparator="."
               decimalSeparator=","
@@ -1473,15 +1391,9 @@ export default function Demostracao({ empresa }) {
               decimalScale={2}
             />
           ),
-          designacao: (
-            <span style={{ fontWeight: "900" }}>
-              Resultados Operacionais Ebit
-            </span>
-          ),
+          designacao: "Resultados Operacionais Ebit",
           fevereiro: data[1] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[1].resultados_operacionais_ebit}
               thousandSeparator="."
               decimalSeparator=","
@@ -1492,8 +1404,6 @@ export default function Demostracao({ empresa }) {
 
           marco: data[2] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[2].resultados_operacionais_ebit}
               thousandSeparator="."
               decimalSeparator=","
@@ -1503,8 +1413,6 @@ export default function Demostracao({ empresa }) {
           ),
           abril: data[3] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[3].resultados_operacionais_ebit}
               thousandSeparator="."
               decimalSeparator=","
@@ -1514,8 +1422,6 @@ export default function Demostracao({ empresa }) {
           ),
           maio: data[4] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[4].resultados_operacionais_ebit}
               thousandSeparator="."
               decimalSeparator=","
@@ -1525,8 +1431,6 @@ export default function Demostracao({ empresa }) {
           ),
           junho: data[5] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[5].resultados_operacionais_ebit}
               thousandSeparator="."
               decimalSeparator=","
@@ -1536,8 +1440,6 @@ export default function Demostracao({ empresa }) {
           ),
           julho: data[6] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[6].resultados_operacionais_ebit}
               thousandSeparator="."
               decimalSeparator=","
@@ -1547,8 +1449,6 @@ export default function Demostracao({ empresa }) {
           ),
           agosto: data[7] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[7].resultados_operacionais_ebit}
               thousandSeparator="."
               decimalSeparator=","
@@ -1558,8 +1458,6 @@ export default function Demostracao({ empresa }) {
           ),
           setembro: data[8] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[8].resultados_operacionais_ebit}
               thousandSeparator="."
               decimalSeparator=","
@@ -1569,8 +1467,6 @@ export default function Demostracao({ empresa }) {
           ),
           outubro: data[9] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[9].resultados_operacionais_ebit}
               thousandSeparator="."
               decimalSeparator=","
@@ -1580,8 +1476,6 @@ export default function Demostracao({ empresa }) {
           ),
           novembro: data[10] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[10].resultados_operacionais_ebit}
               thousandSeparator="."
               decimalSeparator=","
@@ -1591,8 +1485,6 @@ export default function Demostracao({ empresa }) {
           ),
           dezembro: data[11] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[11].resultados_operacionais_ebit}
               thousandSeparator="."
               decimalSeparator=","
@@ -1602,8 +1494,6 @@ export default function Demostracao({ empresa }) {
           ),
         });
         //----------
-
-        newrows.push({ designacao: "" });
 
         newrows.push({
           janeiro: data[0] && (
@@ -1946,13 +1836,10 @@ export default function Demostracao({ empresa }) {
           ),
         });
         //----------
-        newrows.push({ designacao: "" });
 
         newrows.push({
           janeiro: data[0] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[0].resultados_antes_de_imposto}
               thousandSeparator="."
               decimalSeparator=","
@@ -1960,15 +1847,9 @@ export default function Demostracao({ empresa }) {
               decimalScale={2}
             />
           ),
-          designacao: (
-            <span style={{ fontWeight: "900" }}>
-              Resultados Antes De Imposto
-            </span>
-          ),
+          designacao: "Resultados Antes De Imposto",
           fevereiro: data[1] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[1].resultados_antes_de_imposto}
               thousandSeparator="."
               decimalSeparator=","
@@ -1979,8 +1860,6 @@ export default function Demostracao({ empresa }) {
 
           marco: data[2] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[2].resultados_antes_de_imposto}
               thousandSeparator="."
               decimalSeparator=","
@@ -1990,8 +1869,6 @@ export default function Demostracao({ empresa }) {
           ),
           abril: data[3] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[3].resultados_antes_de_imposto}
               thousandSeparator="."
               decimalSeparator=","
@@ -2001,8 +1878,6 @@ export default function Demostracao({ empresa }) {
           ),
           maio: data[4] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[4].resultados_antes_de_imposto}
               thousandSeparator="."
               decimalSeparator=","
@@ -2012,8 +1887,6 @@ export default function Demostracao({ empresa }) {
           ),
           junho: data[5] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[5].resultados_antes_de_imposto}
               thousandSeparator="."
               decimalSeparator=","
@@ -2023,8 +1896,6 @@ export default function Demostracao({ empresa }) {
           ),
           julho: data[6] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[6].resultados_antes_de_imposto}
               thousandSeparator="."
               decimalSeparator=","
@@ -2034,8 +1905,6 @@ export default function Demostracao({ empresa }) {
           ),
           agosto: data[7] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[7].resultados_antes_de_imposto}
               thousandSeparator="."
               decimalSeparator=","
@@ -2045,8 +1914,6 @@ export default function Demostracao({ empresa }) {
           ),
           setembro: data[8] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[8].resultados_antes_de_imposto}
               thousandSeparator="."
               decimalSeparator=","
@@ -2056,8 +1923,6 @@ export default function Demostracao({ empresa }) {
           ),
           outubro: data[9] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[9].resultados_antes_de_imposto}
               thousandSeparator="."
               decimalSeparator=","
@@ -2067,8 +1932,6 @@ export default function Demostracao({ empresa }) {
           ),
           novembro: data[10] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[10].resultados_antes_de_imposto}
               thousandSeparator="."
               decimalSeparator=","
@@ -2078,8 +1941,6 @@ export default function Demostracao({ empresa }) {
           ),
           dezembro: data[11] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[11].resultados_antes_de_imposto}
               thousandSeparator="."
               decimalSeparator=","
@@ -2089,8 +1950,6 @@ export default function Demostracao({ empresa }) {
           ),
         });
         //----------
-
-        newrows.push({ designacao: "" });
 
         newrows.push({
           janeiro: data[0] && (
@@ -2205,13 +2064,10 @@ export default function Demostracao({ empresa }) {
           ),
         });
         //----------
-        newrows.push({ designacao: "" });
 
         newrows.push({
           janeiro: data[0] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[0].resultados_liquidos_das_actividades_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -2219,15 +2075,9 @@ export default function Demostracao({ empresa }) {
               decimalScale={2}
             />
           ),
-          designacao: (
-            <span style={{ fontWeight: "900" }}>
-              Resultados Liquidos Das Actividades Correntes
-            </span>
-          ),
+          designacao: "Resultados Liquidos Das Actividades Correntes",
           fevereiro: data[1] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[1].resultados_liquidos_das_actividades_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -2238,8 +2088,6 @@ export default function Demostracao({ empresa }) {
 
           marco: data[2] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[2].resultados_liquidos_das_actividades_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -2249,8 +2097,6 @@ export default function Demostracao({ empresa }) {
           ),
           abril: data[3] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[3].resultados_liquidos_das_actividades_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -2260,8 +2106,6 @@ export default function Demostracao({ empresa }) {
           ),
           maio: data[4] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[4].resultados_liquidos_das_actividades_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -2271,8 +2115,6 @@ export default function Demostracao({ empresa }) {
           ),
           junho: data[5] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[5].resultados_liquidos_das_actividades_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -2282,8 +2124,6 @@ export default function Demostracao({ empresa }) {
           ),
           julho: data[6] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[6].resultados_liquidos_das_actividades_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -2293,8 +2133,6 @@ export default function Demostracao({ empresa }) {
           ),
           agosto: data[7] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[7].resultados_liquidos_das_actividades_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -2304,8 +2142,6 @@ export default function Demostracao({ empresa }) {
           ),
           setembro: data[8] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[8].resultados_liquidos_das_actividades_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -2315,8 +2151,6 @@ export default function Demostracao({ empresa }) {
           ),
           outubro: data[9] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[9].resultados_liquidos_das_actividades_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -2326,8 +2160,6 @@ export default function Demostracao({ empresa }) {
           ),
           novembro: data[10] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[10].resultados_liquidos_das_actividades_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -2337,8 +2169,6 @@ export default function Demostracao({ empresa }) {
           ),
           dezembro: data[11] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[11].resultados_liquidos_das_actividades_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -2348,7 +2178,6 @@ export default function Demostracao({ empresa }) {
           ),
         });
         //----------
-        newrows.push({ designacao: "" });
 
         newrows.push({
           janeiro: data[0] && (
@@ -2581,8 +2410,6 @@ export default function Demostracao({ empresa }) {
         newrows.push({
           janeiro: data[0] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[0].resultados_liquido_do_exercicio}
               thousandSeparator="."
               decimalSeparator=","
@@ -2590,16 +2417,9 @@ export default function Demostracao({ empresa }) {
               decimalScale={2}
             />
           ),
-          designacao: (
-            <span style={{ fontWeight: "900" }}>
-              {" "}
-              Resultados Liquido Do Exercicio
-            </span>
-          ),
+          designacao: "Resultados Liquido Do Exercicio",
           fevereiro: data[1] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[1].resultados_liquido_do_exercicio}
               thousandSeparator="."
               decimalSeparator=","
@@ -2610,8 +2430,6 @@ export default function Demostracao({ empresa }) {
 
           marco: data[2] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[2].resultados_liquido_do_exercicio}
               thousandSeparator="."
               decimalSeparator=","
@@ -2621,8 +2439,6 @@ export default function Demostracao({ empresa }) {
           ),
           abril: data[3] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[3].resultados_liquido_do_exercicio}
               thousandSeparator="."
               decimalSeparator=","
@@ -2632,8 +2448,6 @@ export default function Demostracao({ empresa }) {
           ),
           maio: data[4] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[4].resultados_liquido_do_exercicio}
               thousandSeparator="."
               decimalSeparator=","
@@ -2643,8 +2457,6 @@ export default function Demostracao({ empresa }) {
           ),
           junho: data[5] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[5].resultados_liquido_do_exercicio}
               thousandSeparator="."
               decimalSeparator=","
@@ -2654,8 +2466,6 @@ export default function Demostracao({ empresa }) {
           ),
           julho: data[6] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[6].resultados_liquido_do_exercicio}
               thousandSeparator="."
               decimalSeparator=","
@@ -2665,8 +2475,6 @@ export default function Demostracao({ empresa }) {
           ),
           agosto: data[7] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[7].resultados_liquido_do_exercicio}
               thousandSeparator="."
               decimalSeparator=","
@@ -2676,8 +2484,6 @@ export default function Demostracao({ empresa }) {
           ),
           setembro: data[8] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[8].resultados_liquido_do_exercicio}
               thousandSeparator="."
               decimalSeparator=","
@@ -2687,8 +2493,6 @@ export default function Demostracao({ empresa }) {
           ),
           outubro: data[9] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[9].resultados_liquido_do_exercicio}
               thousandSeparator="."
               decimalSeparator=","
@@ -2698,8 +2502,6 @@ export default function Demostracao({ empresa }) {
           ),
           novembro: data[10] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[10].resultados_liquido_do_exercicio}
               thousandSeparator="."
               decimalSeparator=","
@@ -2709,8 +2511,6 @@ export default function Demostracao({ empresa }) {
           ),
           dezembro: data[11] && (
             <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
               value={data[11].resultados_liquido_do_exercicio}
               thousandSeparator="."
               decimalSeparator=","
@@ -5621,7 +5421,7 @@ export default function Demostracao({ empresa }) {
   return (
     <div className="container">
       <Head>
-        <title>Demostração</title>
+        <title>Balanço</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -5629,7 +5429,7 @@ export default function Demostracao({ empresa }) {
         <ToastContainer />
         <div className="row">
           <div className="col-md-40">
-            <h3 className="mt-3 mb-3">Demostração {empresa && empresa.nome}</h3>
+            <h3 className="mt-3 mb-3">Balancete {empresa && empresa.nome}</h3>
 
             <div className="row">
               <div className="col-md-3"></div>
@@ -5678,12 +5478,11 @@ export default function Demostracao({ empresa }) {
                   <option>dezembro</option>
                 </select>
               </div>
-
               <div className="col-md-12">
-                {rows && (
+                {balancorows && (
                   <DataGrid
-                    columns={columns}
-                    rows={rows}
+                    columns={balancocolumns}
+                    rows={balancorows}
                     style={{
                       height: "750px",
                       fontSize: "16px",

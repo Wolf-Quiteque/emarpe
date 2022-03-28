@@ -66,28 +66,6 @@ export default function Demostracao({ empresa }) {
     { designacao: "Total Capital Próprio E Passivo" },
   ]);
 
-  const columns = [
-    {
-      key: "designacao",
-      name: "Designação",
-      resizable: false,
-      frozen: true,
-      width: 300,
-    },
-    { key: "janeiro", name: "Janeiro", width: 200 },
-    { key: "fevereiro", name: "Fevereiro", width: 200 },
-    { key: "marco", name: "Março", width: 200 },
-    { key: "abril", name: "Abril", width: 200 },
-    { key: "maio", name: "Maio", width: 200 },
-    { key: "junho", name: "Junho", width: 200 },
-    { key: "julho", name: "Julho", width: 200 },
-    { key: "agosto", name: "Agosto", width: 200 },
-    { key: "setembro", name: "Setembro", width: 200 },
-    { key: "outubro", name: "Outubro", width: 200 },
-    { key: "novembro", name: "Novembro", width: 200 },
-    { key: "dezembro", name: "Dezembro", width: 200 },
-  ];
-
   const balancocolumns = [
     {
       key: "designacao",
@@ -122,2607 +100,6 @@ export default function Demostracao({ empresa }) {
     });
     const data = await res.json();
     setdre(data);
-    var datalenght = Number(data.length) - 1;
-
-    for (let index = 0; index < data.length; index++) {
-      if (index == datalenght) {
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              value={data[0].vendas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: "Vendas",
-          fevereiro: data[1] && (
-            <NumberFormat
-              value={data[1].vendas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              value={data[2].vendas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              value={data[3].vendas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              value={data[4].vendas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              value={data[5].vendas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              value={data[6].vendas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              value={data[7].vendas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              value={data[8].vendas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              value={data[9].vendas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              value={data[10].vendas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              value={data[11].vendas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              value={data[0].prestacao_de_servico}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: "Prestação de serviços",
-          fevereiro: data[1] && (
-            <NumberFormat
-              value={data[1].prestacao_de_servico}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              value={data[2].prestacao_de_servico}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              value={data[3].prestacao_de_servico}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              value={data[4].prestacao_de_servico}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              value={data[5].prestacao_de_servico}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              value={data[6].prestacao_de_servico}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              value={data[7].prestacao_de_servico}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              value={data[8].prestacao_de_servico}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              value={data[9].prestacao_de_servico}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              value={data[10].prestacao_de_servico}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              value={data[11].prestacao_de_servico}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-
-        //----------
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[0].total}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: <span style={{ fontWeight: "900" }}>Total</span>,
-          fevereiro: data[1] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[1].total}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[2].total}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[3].total}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[4].total}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[5].total}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[6].total}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[7].total}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[8].total}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[9].total}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[10].total}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[11].total}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-
-        //----------
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              value={data[0].custos_das_mercadorias_vendidas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: "Custos Das Mercadorias Vendidas",
-          fevereiro: data[1] && (
-            <NumberFormat
-              value={data[1].custos_das_mercadorias_vendidas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              value={data[2].custos_das_mercadorias_vendidas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              value={data[3].custos_das_mercadorias_vendidas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              value={data[4].custos_das_mercadorias_vendidas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              value={data[5].custos_das_mercadorias_vendidas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              value={data[6].custos_das_mercadorias_vendidas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              value={data[7].custos_das_mercadorias_vendidas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              value={data[8].custos_das_mercadorias_vendidas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              value={data[9].custos_das_mercadorias_vendidas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              value={data[10].custos_das_mercadorias_vendidas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              value={data[11].custos_das_mercadorias_vendidas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[0].margem_bruta}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: <span style={{ fontWeight: "900" }}>Margem Bruta</span>,
-          fevereiro: data[1] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[1].margem_bruta}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[2].margem_bruta}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[3].margem_bruta}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[4].margem_bruta}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[5].margem_bruta}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[6].margem_bruta}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[7].margem_bruta}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[8].margem_bruta}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[9].margem_bruta}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[10].margem_bruta}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[11].margem_bruta}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-
-        newrows.push({ designacao: "" });
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              value={data[0].outros_proveitos_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: "Outros Proveitos Operacionais",
-          fevereiro: data[1] && (
-            <NumberFormat
-              value={data[1].outros_proveitos_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              value={data[2].outros_proveitos_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              value={data[3].outros_proveitos_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              value={data[4].outros_proveitos_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              value={data[5].outros_proveitos_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              value={data[6].outros_proveitos_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              value={data[7].outros_proveitos_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              value={data[8].outros_proveitos_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              value={data[9].outros_proveitos_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              value={data[10].outros_proveitos_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              value={data[11].outros_proveitos_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              value={data[0].custos_de_distribuicao}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: "Custos De Distribuicao",
-          fevereiro: data[1] && (
-            <NumberFormat
-              value={data[1].custos_de_distribuicao}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              value={data[2].custos_de_distribuicao}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              value={data[3].custos_de_distribuicao}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              value={data[4].custos_de_distribuicao}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              value={data[5].custos_de_distribuicao}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              value={data[6].custos_de_distribuicao}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              value={data[7].custos_de_distribuicao}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              value={data[8].custos_de_distribuicao}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              value={data[9].custos_de_distribuicao}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              value={data[10].custos_de_distribuicao}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              value={data[11].custos_de_distribuicao}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              value={data[0].custos_administrativos_pessoal}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: "Custos Administrativos Pessoal",
-          fevereiro: data[1] && (
-            <NumberFormat
-              value={data[1].custos_administrativos_pessoal}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              value={data[2].custos_administrativos_pessoal}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              value={data[3].custos_administrativos_pessoal}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              value={data[4].custos_administrativos_pessoal}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              value={data[5].custos_administrativos_pessoal}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              value={data[6].custos_administrativos_pessoal}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              value={data[7].custos_administrativos_pessoal}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              value={data[8].custos_administrativos_pessoal}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              value={data[9].custos_administrativos_pessoal}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              value={data[10].custos_administrativos_pessoal}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              value={data[11].custos_administrativos_pessoal}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              value={data[0].outros_custos_e_perdas_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: "Outros Custos E Perdas Operacionais",
-          fevereiro: data[1] && (
-            <NumberFormat
-              value={data[1].outros_custos_e_perdas_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              value={data[2].outros_custos_e_perdas_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              value={data[3].outros_custos_e_perdas_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              value={data[4].outros_custos_e_perdas_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              value={data[5].outros_custos_e_perdas_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              value={data[6].outros_custos_e_perdas_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              value={data[7].outros_custos_e_perdas_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              value={data[8].outros_custos_e_perdas_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              value={data[9].outros_custos_e_perdas_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              value={data[10].outros_custos_e_perdas_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              value={data[11].outros_custos_e_perdas_operacionais}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[0].resultados_operacionais_ebitda}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: (
-            <span style={{ fontWeight: "900" }}>
-              Resultados Operacionais Ebitda
-            </span>
-          ),
-          fevereiro: data[1] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[1].resultados_operacionais_ebitda}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[2].resultados_operacionais_ebitda}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[3].resultados_operacionais_ebitda}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[4].resultados_operacionais_ebitda}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[5].resultados_operacionais_ebitda}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[6].resultados_operacionais_ebitda}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[7].resultados_operacionais_ebitda}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[8].resultados_operacionais_ebitda}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[9].resultados_operacionais_ebitda}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[10].resultados_operacionais_ebitda}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[11].resultados_operacionais_ebitda}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-
-        newrows.push({ designacao: "" });
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              value={data[0].amortizacoes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: "Amortizacoes",
-          fevereiro: data[1] && (
-            <NumberFormat
-              value={data[1].amortizacoes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              value={data[2].amortizacoes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              value={data[3].amortizacoes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              value={data[4].amortizacoes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              value={data[5].amortizacoes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              value={data[6].amortizacoes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              value={data[7].amortizacoes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              value={data[8].amortizacoes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              value={data[9].amortizacoes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              value={data[10].amortizacoes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              value={data[11].amortizacoes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[0].resultados_operacionais_ebit}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: (
-            <span style={{ fontWeight: "900" }}>
-              Resultados Operacionais Ebit
-            </span>
-          ),
-          fevereiro: data[1] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[1].resultados_operacionais_ebit}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[2].resultados_operacionais_ebit}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[3].resultados_operacionais_ebit}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[4].resultados_operacionais_ebit}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[5].resultados_operacionais_ebit}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[6].resultados_operacionais_ebit}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[7].resultados_operacionais_ebit}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[8].resultados_operacionais_ebit}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[9].resultados_operacionais_ebit}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[10].resultados_operacionais_ebit}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[11].resultados_operacionais_ebit}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-
-        newrows.push({ designacao: "" });
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              value={data[0].resultados_financeiros}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: "Resultados Financeiros",
-          fevereiro: data[1] && (
-            <NumberFormat
-              value={data[1].resultados_financeiros}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              value={data[2].resultados_financeiros}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              value={data[3].resultados_financeiros}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              value={data[4].resultados_financeiros}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              value={data[5].resultados_financeiros}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              value={data[6].resultados_financeiros}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              value={data[7].resultados_financeiros}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              value={data[8].resultados_financeiros}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              value={data[9].resultados_financeiros}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              value={data[10].resultados_financeiros}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              value={data[11].resultados_financeiros}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              value={data[0].resultados_de_filias_e_associados}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: "Resultados De Filias E Associados",
-          fevereiro: data[1] && (
-            <NumberFormat
-              value={data[1].resultados_de_filias_e_associados}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              value={data[2].resultados_de_filias_e_associados}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              value={data[3].resultados_de_filias_e_associados}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              value={data[4].resultados_de_filias_e_associados}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              value={data[5].resultados_de_filias_e_associados}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              value={data[6].resultados_de_filias_e_associados}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              value={data[7].resultados_de_filias_e_associados}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              value={data[8].resultados_de_filias_e_associados}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              value={data[9].resultados_de_filias_e_associados}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              value={data[10].resultados_de_filias_e_associados}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              value={data[11].resultados_de_filias_e_associados}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              value={data[0].resultados_nao_operacionas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: "Resultados Nao Operacionas",
-          fevereiro: data[1] && (
-            <NumberFormat
-              value={data[1].resultados_nao_operacionas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              value={data[2].resultados_nao_operacionas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              value={data[3].resultados_nao_operacionas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              value={data[4].resultados_nao_operacionas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              value={data[5].resultados_nao_operacionas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              value={data[6].resultados_nao_operacionas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              value={data[7].resultados_nao_operacionas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              value={data[8].resultados_nao_operacionas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              value={data[9].resultados_nao_operacionas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              value={data[10].resultados_nao_operacionas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              value={data[11].resultados_nao_operacionas}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-        newrows.push({ designacao: "" });
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[0].resultados_antes_de_imposto}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: (
-            <span style={{ fontWeight: "900" }}>
-              Resultados Antes De Imposto
-            </span>
-          ),
-          fevereiro: data[1] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[1].resultados_antes_de_imposto}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[2].resultados_antes_de_imposto}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[3].resultados_antes_de_imposto}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[4].resultados_antes_de_imposto}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[5].resultados_antes_de_imposto}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[6].resultados_antes_de_imposto}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[7].resultados_antes_de_imposto}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[8].resultados_antes_de_imposto}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[9].resultados_antes_de_imposto}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[10].resultados_antes_de_imposto}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[11].resultados_antes_de_imposto}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-
-        newrows.push({ designacao: "" });
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              value={data[0].imposto_sobre_os_rendimentos_provisional}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: "Imposto Sobre Os Rendimentos Provisional",
-          fevereiro: data[1] && (
-            <NumberFormat
-              value={data[1].imposto_sobre_os_rendimentos_provisional}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              value={data[2].imposto_sobre_os_rendimentos_provisional}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              value={data[3].imposto_sobre_os_rendimentos_provisional}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              value={data[4].imposto_sobre_os_rendimentos_provisional}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              value={data[5].imposto_sobre_os_rendimentos_provisional}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              value={data[6].imposto_sobre_os_rendimentos_provisional}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              value={data[7].imposto_sobre_os_rendimentos_provisional}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              value={data[8].imposto_sobre_os_rendimentos_provisional}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              value={data[9].imposto_sobre_os_rendimentos_provisional}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              value={data[10].imposto_sobre_os_rendimentos_provisional}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              value={data[11].imposto_sobre_os_rendimentos_provisional}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-        newrows.push({ designacao: "" });
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[0].resultados_liquidos_das_actividades_correntes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: (
-            <span style={{ fontWeight: "900" }}>
-              Resultados Liquidos Das Actividades Correntes
-            </span>
-          ),
-          fevereiro: data[1] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[1].resultados_liquidos_das_actividades_correntes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[2].resultados_liquidos_das_actividades_correntes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[3].resultados_liquidos_das_actividades_correntes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[4].resultados_liquidos_das_actividades_correntes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[5].resultados_liquidos_das_actividades_correntes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[6].resultados_liquidos_das_actividades_correntes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[7].resultados_liquidos_das_actividades_correntes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[8].resultados_liquidos_das_actividades_correntes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[9].resultados_liquidos_das_actividades_correntes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[10].resultados_liquidos_das_actividades_correntes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[11].resultados_liquidos_das_actividades_correntes}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-        newrows.push({ designacao: "" });
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              value={data[0].reultados_extraordinario}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: "Reultados Extraordinario",
-          fevereiro: data[1] && (
-            <NumberFormat
-              value={data[1].reultados_extraordinario}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              value={data[2].reultados_extraordinario}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              value={data[3].reultados_extraordinario}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              value={data[4].reultados_extraordinario}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              value={data[5].reultados_extraordinario}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              value={data[6].reultados_extraordinario}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              value={data[7].reultados_extraordinario}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              value={data[8].reultados_extraordinario}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              value={data[9].reultados_extraordinario}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              value={data[10].reultados_extraordinario}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              value={data[11].reultados_extraordinario}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              value={data[0].imposto_sobre_rendimetno}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: "Imposto Sobre Rendimetno",
-          fevereiro: data[1] && (
-            <NumberFormat
-              value={data[1].imposto_sobre_rendimetno}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              value={data[2].imposto_sobre_rendimetno}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              value={data[3].imposto_sobre_rendimetno}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              value={data[4].imposto_sobre_rendimetno}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              value={data[5].imposto_sobre_rendimetno}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              value={data[6].imposto_sobre_rendimetno}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              value={data[7].imposto_sobre_rendimetno}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              value={data[8].imposto_sobre_rendimetno}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              value={data[9].imposto_sobre_rendimetno}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              value={data[10].imposto_sobre_rendimetno}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              value={data[11].imposto_sobre_rendimetno}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-
-        newrows.push({
-          janeiro: data[0] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[0].resultados_liquido_do_exercicio}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          designacao: (
-            <span style={{ fontWeight: "900" }}>
-              {" "}
-              Resultados Liquido Do Exercicio
-            </span>
-          ),
-          fevereiro: data[1] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[1].resultados_liquido_do_exercicio}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-
-          marco: data[2] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[2].resultados_liquido_do_exercicio}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          abril: data[3] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[3].resultados_liquido_do_exercicio}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          maio: data[4] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[4].resultados_liquido_do_exercicio}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          junho: data[5] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[5].resultados_liquido_do_exercicio}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          julho: data[6] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[6].resultados_liquido_do_exercicio}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          agosto: data[7] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[7].resultados_liquido_do_exercicio}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          setembro: data[8] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[8].resultados_liquido_do_exercicio}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          outubro: data[9] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[9].resultados_liquido_do_exercicio}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          novembro: data[10] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[10].resultados_liquido_do_exercicio}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-          dezembro: data[11] && (
-            <NumberFormat
-              className="text-danger"
-              style={{ fontWeight: "900" }}
-              value={data[11].resultados_liquido_do_exercicio}
-              thousandSeparator="."
-              decimalSeparator=","
-              displayType="text"
-              decimalScale={2}
-            />
-          ),
-        });
-        //----------
-      }
-    }
-    setRows(newrows);
   };
 
   const getBalanco = async () => {
@@ -3321,6 +698,10 @@ export default function Demostracao({ empresa }) {
         balancorow.push({
           janeiro: data[0] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[0].total_activo_nao_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -3328,9 +709,15 @@ export default function Demostracao({ empresa }) {
               decimalScale={2}
             />
           ),
-          designacao: "Total Activos Nao Correntes",
+          designacao: (
+            <span style={{ fontWeight: "900" }}>
+              Total Activos Nao Correntes
+            </span>
+          ),
           fevereiro: data[1] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[1].total_activo_nao_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -3341,6 +728,8 @@ export default function Demostracao({ empresa }) {
 
           marco: data[2] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[2].total_activo_nao_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -3350,6 +739,8 @@ export default function Demostracao({ empresa }) {
           ),
           abril: data[3] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[3].total_activo_nao_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -3359,6 +750,8 @@ export default function Demostracao({ empresa }) {
           ),
           maio: data[4] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[4].total_activo_nao_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -3368,6 +761,8 @@ export default function Demostracao({ empresa }) {
           ),
           junho: data[5] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[5].total_activo_nao_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -3377,6 +772,8 @@ export default function Demostracao({ empresa }) {
           ),
           julho: data[6] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[6].total_activo_nao_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -3386,6 +783,8 @@ export default function Demostracao({ empresa }) {
           ),
           agosto: data[7] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[7].total_activo_nao_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -3395,6 +794,8 @@ export default function Demostracao({ empresa }) {
           ),
           setembro: data[8] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[8].total_activo_nao_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -3404,6 +805,8 @@ export default function Demostracao({ empresa }) {
           ),
           outubro: data[9] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[9].total_activo_nao_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -3413,6 +816,8 @@ export default function Demostracao({ empresa }) {
           ),
           novembro: data[10] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[10].total_activo_nao_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -3422,6 +827,8 @@ export default function Demostracao({ empresa }) {
           ),
           dezembro: data[11] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[11].total_activo_nao_correntes}
               thousandSeparator="."
               decimalSeparator=","
@@ -3897,6 +1304,8 @@ export default function Demostracao({ empresa }) {
         balancorow.push({
           janeiro: data[0] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[0].total_activos}
               thousandSeparator="."
               decimalSeparator=","
@@ -3904,9 +1313,11 @@ export default function Demostracao({ empresa }) {
               decimalScale={2}
             />
           ),
-          designacao: "Total activo",
+          designacao: <span style={{ fontWeight: "900" }}>Total activo</span>,
           fevereiro: data[1] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[1].total_activos}
               thousandSeparator="."
               decimalSeparator=","
@@ -3917,6 +1328,8 @@ export default function Demostracao({ empresa }) {
 
           marco: data[2] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[2].total_activos}
               thousandSeparator="."
               decimalSeparator=","
@@ -3926,6 +1339,8 @@ export default function Demostracao({ empresa }) {
           ),
           abril: data[3] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[3].total_activos}
               thousandSeparator="."
               decimalSeparator=","
@@ -3935,6 +1350,8 @@ export default function Demostracao({ empresa }) {
           ),
           maio: data[4] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[4].total_activos}
               thousandSeparator="."
               decimalSeparator=","
@@ -3944,6 +1361,8 @@ export default function Demostracao({ empresa }) {
           ),
           junho: data[5] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[5].total_activos}
               thousandSeparator="."
               decimalSeparator=","
@@ -3953,6 +1372,8 @@ export default function Demostracao({ empresa }) {
           ),
           julho: data[6] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[6].total_activos}
               thousandSeparator="."
               decimalSeparator=","
@@ -3962,6 +1383,8 @@ export default function Demostracao({ empresa }) {
           ),
           agosto: data[7] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[7].total_activos}
               thousandSeparator="."
               decimalSeparator=","
@@ -3971,6 +1394,8 @@ export default function Demostracao({ empresa }) {
           ),
           setembro: data[8] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[8].total_activos}
               thousandSeparator="."
               decimalSeparator=","
@@ -3980,6 +1405,8 @@ export default function Demostracao({ empresa }) {
           ),
           outubro: data[9] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[9].total_activos}
               thousandSeparator="."
               decimalSeparator=","
@@ -3989,6 +1416,8 @@ export default function Demostracao({ empresa }) {
           ),
           novembro: data[10] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[10].total_activos}
               thousandSeparator="."
               decimalSeparator=","
@@ -3998,6 +1427,8 @@ export default function Demostracao({ empresa }) {
           ),
           dezembro: data[11] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[11].total_activos}
               thousandSeparator="."
               decimalSeparator=","
@@ -5498,6 +2929,8 @@ export default function Demostracao({ empresa }) {
         balancorow.push({
           janeiro: data[0] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[0].total_capital_poprio_e_passivo}
               thousandSeparator="."
               decimalSeparator=","
@@ -5505,9 +2938,15 @@ export default function Demostracao({ empresa }) {
               decimalScale={2}
             />
           ),
-          designacao: "Total Capital Próprio E Passivo",
+          designacao: (
+            <span style={{ fontWeight: "900" }}>
+              Total Capital Próprio E Passivo
+            </span>
+          ),
           fevereiro: data[1] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[1].total_capital_poprio_e_passivo}
               thousandSeparator="."
               decimalSeparator=","
@@ -5518,6 +2957,8 @@ export default function Demostracao({ empresa }) {
 
           marco: data[2] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[2].total_capital_poprio_e_passivo}
               thousandSeparator="."
               decimalSeparator=","
@@ -5527,6 +2968,8 @@ export default function Demostracao({ empresa }) {
           ),
           abril: data[3] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[3].total_capital_poprio_e_passivo}
               thousandSeparator="."
               decimalSeparator=","
@@ -5536,6 +2979,8 @@ export default function Demostracao({ empresa }) {
           ),
           maio: data[4] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[4].total_capital_poprio_e_passivo}
               thousandSeparator="."
               decimalSeparator=","
@@ -5545,6 +2990,8 @@ export default function Demostracao({ empresa }) {
           ),
           junho: data[5] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[5].total_capital_poprio_e_passivo}
               thousandSeparator="."
               decimalSeparator=","
@@ -5554,6 +3001,8 @@ export default function Demostracao({ empresa }) {
           ),
           julho: data[6] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[6].total_capital_poprio_e_passivo}
               thousandSeparator="."
               decimalSeparator=","
@@ -5563,6 +3012,8 @@ export default function Demostracao({ empresa }) {
           ),
           agosto: data[7] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[7].total_capital_poprio_e_passivo}
               thousandSeparator="."
               decimalSeparator=","
@@ -5572,6 +3023,8 @@ export default function Demostracao({ empresa }) {
           ),
           setembro: data[8] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[8].total_capital_poprio_e_passivo}
               thousandSeparator="."
               decimalSeparator=","
@@ -5581,6 +3034,8 @@ export default function Demostracao({ empresa }) {
           ),
           outubro: data[9] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[9].total_capital_poprio_e_passivo}
               thousandSeparator="."
               decimalSeparator=","
@@ -5590,6 +3045,8 @@ export default function Demostracao({ empresa }) {
           ),
           novembro: data[10] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[10].total_capital_poprio_e_passivo}
               thousandSeparator="."
               decimalSeparator=","
@@ -5599,6 +3056,8 @@ export default function Demostracao({ empresa }) {
           ),
           dezembro: data[11] && (
             <NumberFormat
+              className="text-danger"
+              style={{ fontWeight: "900" }}
               value={data[11].total_capital_poprio_e_passivo}
               thousandSeparator="."
               decimalSeparator=","
@@ -5621,7 +3080,7 @@ export default function Demostracao({ empresa }) {
   return (
     <div className="container">
       <Head>
-        <title>Demostração</title>
+        <title>Balanço</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -5629,7 +3088,7 @@ export default function Demostracao({ empresa }) {
         <ToastContainer />
         <div className="row">
           <div className="col-md-40">
-            <h3 className="mt-3 mb-3">Demostração {empresa && empresa.nome}</h3>
+            <h3 className="mt-3 mb-3">Balanço {empresa && empresa.nome}</h3>
 
             <div className="row">
               <div className="col-md-3"></div>
@@ -5678,12 +3137,11 @@ export default function Demostracao({ empresa }) {
                   <option>dezembro</option>
                 </select>
               </div>
-
               <div className="col-md-12">
-                {rows && (
+                {balancorows && (
                   <DataGrid
-                    columns={columns}
-                    rows={rows}
+                    columns={balancocolumns}
+                    rows={balancorows}
                     style={{
                       height: "750px",
                       fontSize: "16px",

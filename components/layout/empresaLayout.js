@@ -7,6 +7,8 @@ import DadosEmpresa from "../../pages/empresa/Dados-Empresa";
 import Dashboard from "../../pages/empresa/Dashboard";
 import Fonte from "../../pages/empresa/Fonte";
 import Demostracao from "../../pages/empresa/Demostracao";
+import Balanco from "../../pages/empresa/Balanco";
+import Balancete from "../../pages/empresa/Balancete";
 
 export default function EmpresaLayout({ children, empresa }) {
   const router = useRouter();
@@ -345,7 +347,7 @@ export default function EmpresaLayout({ children, empresa }) {
                     </a>
                   </li>
 
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <a
                       href="#demostracao"
                       className="nav-link"
@@ -355,6 +357,44 @@ export default function EmpresaLayout({ children, empresa }) {
                     >
                       <i className="nav-icon fas fa-clone"></i>
                       <p>Demonstraçoes</p>
+                    </a>
+                  </li> */}
+                  <li className="nav-header">DEMONSTRAÇÕES</li>
+
+                  <li className="nav-item">
+                    <a
+                      href="#DRE"
+                      className="nav-link"
+                      onClick={() => {
+                        setview(<Demostracao empresa={empresa} />);
+                      }}
+                    >
+                      <i className="nav-icon fas fa-file"></i>
+                      <p>DRE</p>
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a
+                      onClick={() => {
+                        setview(<Balanco empresa={empresa} />);
+                      }}
+                      href="#Balanco"
+                      className="nav-link"
+                    >
+                      <i className="nav-icon fas fa-file-alt"></i>
+                      <p>Balanço</p>
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a
+                      onClick={() => {
+                        setview(<Balancete empresa={empresa} />);
+                      }}
+                      href="#"
+                      className="nav-link"
+                    >
+                      <i className="nav-icon fas fa-clipboard"></i>
+                      <p>Balancete</p>
                     </a>
                   </li>
 
