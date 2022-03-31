@@ -11,17 +11,10 @@ export default async function handler(req, res) {
   const data = req.body;
   const db = cliente.db("myFirstDatabase");
 
-  if (data.mes) {
-    var resul = await db
-      .collection("demostracao")
-      .find({ id_empresa: data.id_empresa, ano: data.ano, mes: data.mes })
-      .toArray();
-  } else {
-    var resul = await db
-      .collection("demostracao")
-      .find({ id_empresa: data.id_empresa })
-      .toArray();
-  }
+  var resul = await db
+    .collection("balanco")
+    .find({ id_empresa: data.id_empresa })
+    .toArray();
 
   res.json(resul);
 }

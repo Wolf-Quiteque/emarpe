@@ -60,208 +60,218 @@ export default function Dashboard({ empresa }) {
     const data = await res.json();
     setbalanco(data);
 
-    indicardor_1.push(
-      {
-        name: "Janeiro",
-        Investimento: Number(data[0].total_activo_nao_correntes),
-        Vol_Negócio: Number(data2[0].vendas + data2[0].prestacao_de_servico),
-        Fluxo_Caixa: Number(data[0].disponibilidades),
-      },
-      {
-        name: "Fevereiro",
-        Investimento: data[1].total_activo_nao_correntes,
-        Vol_Negócio: Number(data2[1].vendas + data2[1].prestacao_de_servico),
-        Fluxo_Caixa: Number(data[1].disponibilidades),
-      }
-    );
-    setindicador_1_daddos(indicardor_1);
+    if (data[0] && data2[0]) {
+      indicardor_1.push(
+        {
+          name: "Janeiro",
+          Investimento: Number(data[0].total_activo_nao_correntes),
+          Vol_Negócio: Number(data2[0].vendas + data2[0].prestacao_de_servico),
+          Fluxo_Caixa: Number(data[0].disponibilidades),
+        },
+        {
+          name: "Fevereiro",
+          Investimento: data[1].total_activo_nao_correntes,
+          Vol_Negócio: Number(data2[1].vendas + data2[1].prestacao_de_servico),
+          Fluxo_Caixa: Number(data[1].disponibilidades),
+        }
+      );
+      setindicador_1_daddos(indicardor_1);
 
-    //---------------------------------------------------------------------------
+      //---------------------------------------------------------------------------
 
-    indicardor_2.push(
-      {
-        name: "Janeiro",
-        Financiamento: Number(data[0].total_capital_poprio_e_passivo),
-        Resultados_Liquidos: Number(
-          data2[0].resultados_liquidos_das_actividades_correntes
-        ),
-      },
-      {
-        name: "Fevereiro",
-        Financiamento: data[1].total_activo_nao_correntes,
-        Resultados_Liquidos: Number(
-          data2[1].resultados_liquidos_das_actividades_correntes
-        ),
-      }
-    );
-    setindicador_2_daddos(indicardor_2);
+      indicardor_2.push(
+        {
+          name: "Janeiro",
+          Financiamento: Number(data[0].total_capital_poprio_e_passivo),
+          Resultados_Liquidos: Number(
+            data2[0].resultados_liquidos_das_actividades_correntes
+          ),
+        },
+        {
+          name: "Fevereiro",
+          Financiamento: data[1].total_activo_nao_correntes,
+          Resultados_Liquidos: Number(
+            data2[1].resultados_liquidos_das_actividades_correntes
+          ),
+        }
+      );
+      setindicador_2_daddos(indicardor_2);
 
-    //---------------------------------------------------------------------------    /
-    indicardor_3.push(
-      {
-        name: "Janeiro",
-        Endividamento:
-          (Number(
-            data[0].total_passivo_nao_corrente + data[0].total_passivo_correntes
-          ) /
-            Number(data[0].total_activos)) *
-          100,
-        Solvabilidade:
-          (Number(
-            data[0].total_passivo_nao_corrente + data[0].total_passivo_correntes
-          ) /
-            Number(data[0].total_capital_propio)) *
-          100,
-        Auto_Financeira:
-          Number(data[0].total_capital_propio / data[0].total_activos) * 100,
-      },
-      {
-        name: "Fevereiro",
-        Endividamento:
-          (Number(
-            data[1].total_passivo_nao_corrente + data[1].total_passivo_correntes
-          ) /
-            Number(data[1].total_activos)) *
-          100,
-        Solvabilidade:
-          (Number(
-            data[1].total_passivo_nao_corrente + data[1].total_passivo_correntes
-          ) /
-            Number(data[1].total_capital_propio)) *
-          100,
-        Auto_Financeira:
-          Number(data[1].total_capital_propio / data[1].total_activos) * 100,
-      }
-    );
-    setindicador_3_daddos(indicardor_3);
+      //---------------------------------------------------------------------------    /
+      indicardor_3.push(
+        {
+          name: "Janeiro",
+          Endividamento:
+            (Number(
+              data[0].total_passivo_nao_corrente +
+                data[0].total_passivo_correntes
+            ) /
+              Number(data[0].total_activos)) *
+            100,
+          Solvabilidade:
+            (Number(
+              data[0].total_passivo_nao_corrente +
+                data[0].total_passivo_correntes
+            ) /
+              Number(data[0].total_capital_propio)) *
+            100,
+          Auto_Financeira:
+            Number(data[0].total_capital_propio / data[0].total_activos) * 100,
+        },
+        {
+          name: "Fevereiro",
+          Endividamento:
+            (Number(
+              data[1].total_passivo_nao_corrente +
+                data[1].total_passivo_correntes
+            ) /
+              Number(data[1].total_activos)) *
+            100,
+          Solvabilidade:
+            (Number(
+              data[1].total_passivo_nao_corrente +
+                data[1].total_passivo_correntes
+            ) /
+              Number(data[1].total_capital_propio)) *
+            100,
+          Auto_Financeira:
+            Number(data[1].total_capital_propio / data[1].total_activos) * 100,
+        }
+      );
+      setindicador_3_daddos(indicardor_3);
 
-    //---------------------------------------------------------------------------
+      //---------------------------------------------------------------------------
 
-    indicardor_4.push(
-      {
-        name: "Janeiro",
+      indicardor_4.push(
+        {
+          name: "Janeiro",
 
-        Liquidez_Geral:
-          Number(
-            data[0].total_activos_correntes / data[0].total_passivo_correntes
-          ) * 100,
+          Liquidez_Geral:
+            Number(
+              data[0].total_activos_correntes / data[0].total_passivo_correntes
+            ) * 100,
 
-        Liquidez_Reduzida:
-          (Number(data[0].total_activos_correntes - data[0].existencias) /
-            Number(data[0].total_passivo_correntes)) *
-          100,
+          Liquidez_Reduzida:
+            (Number(data[0].total_activos_correntes - data[0].existencias) /
+              Number(data[0].total_passivo_correntes)) *
+            100,
 
-        Liquidez_Imediata:
-          Number(data[0].disponibilidades / data[0].total_passivo_correntes) *
-          100,
-      },
-      {
-        name: "Fevereiro",
-        Liquidez_Geral:
-          Number(
-            data[1].total_activos_correntes / data[1].total_passivo_correntes
-          ) * 100,
+          Liquidez_Imediata:
+            Number(data[0].disponibilidades / data[0].total_passivo_correntes) *
+            100,
+        },
+        {
+          name: "Fevereiro",
+          Liquidez_Geral:
+            Number(
+              data[1].total_activos_correntes / data[1].total_passivo_correntes
+            ) * 100,
 
-        Liquidez_Reduzida:
-          (Number(data[1].total_activos_correntes - data[1].existencias) /
-            Number(data[1].total_passivo_correntes)) *
-          100,
+          Liquidez_Reduzida:
+            (Number(data[1].total_activos_correntes - data[1].existencias) /
+              Number(data[1].total_passivo_correntes)) *
+            100,
 
-        Liquidez_Imediata:
-          Number(data[1].disponibilidades / data[1].total_passivo_correntes) *
-          100,
-      }
-    );
-    setindicador_4_daddos(indicardor_4);
+          Liquidez_Imediata:
+            Number(data[1].disponibilidades / data[1].total_passivo_correntes) *
+            100,
+        }
+      );
+      setindicador_4_daddos(indicardor_4);
 
-    //---------------------------------------------------------------------------    /
+      //---------------------------------------------------------------------------    /
 
-    indicardor_5.push(
-      {
-        name: "Janeiro",
+      indicardor_5.push(
+        {
+          name: "Janeiro",
 
-        Rend_Dos_CP:
-          Number(
-            data[0].resultados_de_exercicio / data[0].total_capital_propio
-          ) * 100,
+          Rend_Dos_CP:
+            Number(
+              data[0].resultados_de_exercicio / data[0].total_capital_propio
+            ) * 100,
 
-        Rend_Activos:
-          Number(
-            data2[0].resultados_operacionais_ebitda / data[0].total_activos
-          ) * 100,
+          Rend_Activos:
+            Number(
+              data2[0].resultados_operacionais_ebitda / data[0].total_activos
+            ) * 100,
 
-        Rend_Vendas:
-          (Number(data2[0].resultados_operacionais_ebit) /
-            Number(data2[0].vendas + data2[0].prestacao_de_servico)) *
-          100,
-      },
-      {
-        name: "Fevereiro",
-        Rend_Dos_CP:
-          Number(
-            data[1].resultados_de_exercicio / data[1].total_capital_propio
-          ) * 100,
+          Rend_Vendas:
+            (Number(data2[0].resultados_operacionais_ebit) /
+              Number(data2[0].vendas + data2[0].prestacao_de_servico)) *
+            100,
+        },
+        {
+          name: "Fevereiro",
+          Rend_Dos_CP:
+            Number(
+              data[1].resultados_de_exercicio / data[1].total_capital_propio
+            ) * 100,
 
-        Rend_Activos:
-          Number(
-            data2[1].resultados_operacionais_ebitda / data[1].total_activos
-          ) * 100,
+          Rend_Activos:
+            Number(
+              data2[1].resultados_operacionais_ebitda / data[1].total_activos
+            ) * 100,
 
-        Rend_Vendas:
-          (Number(data2[1].resultados_operacionais_ebit) /
-            Number(data2[1].vendas + data2[1].prestacao_de_servico)) *
-          100,
-      }
-    );
-    setindicador_5_daddos(indicardor_5);
+          Rend_Vendas:
+            (Number(data2[1].resultados_operacionais_ebit) /
+              Number(data2[1].vendas + data2[1].prestacao_de_servico)) *
+            100,
+        }
+      );
+      setindicador_5_daddos(indicardor_5);
 
-    //------------------------------------------------------------
+      //------------------------------------------------------------
 
-    indicardor_6.push(
-      {
-        name: "Janeiro",
+      indicardor_6.push(
+        {
+          name: "Janeiro",
 
-        Valor_Do_Capital: Number(data[0].total_capital_propio),
+          Valor_Do_Capital: Number(data[0].total_capital_propio),
 
-        Valor_Da_Firma:
-          Number(
-            data[0].total_passivo_nao_corrente + data[0].total_passivo_correntes
-          ) - data[0].disponibilidades,
-      },
-      {
-        name: "Fevereiro",
-        Valor_Do_Capital: Number(data[1].total_capital_propio),
+          Valor_Da_Firma:
+            Number(
+              data[0].total_passivo_nao_corrente +
+                data[0].total_passivo_correntes
+            ) - data[0].disponibilidades,
+        },
+        {
+          name: "Fevereiro",
+          Valor_Do_Capital: Number(data[1].total_capital_propio),
 
-        Valor_Da_Firma:
-          Number(
-            data[1].total_passivo_nao_corrente + data[1].total_passivo_correntes
-          ) - data[1].disponibilidades,
-      }
-    );
-    setindicador_6_daddos(indicardor_6);
+          Valor_Da_Firma:
+            Number(
+              data[1].total_passivo_nao_corrente +
+                data[1].total_passivo_correntes
+            ) - data[1].disponibilidades,
+        }
+      );
+      setindicador_6_daddos(indicardor_6);
 
-    indicardor_7.push(
-      {
-        name: "Janeiro",
+      indicardor_7.push(
+        {
+          name: "Janeiro",
 
-        Lucro_Por_Ação: Number(data[0].total_capital_propio),
+          Lucro_Por_Ação: Number(data[0].total_capital_propio),
 
-        Lucro_Por_Ação_Acumulada:
-          Number(
-            data[0].total_passivo_nao_corrente + data[0].total_passivo_correntes
-          ) - data[0].disponibilidades,
-      },
-      {
-        name: "Fevereiro",
-        Lucro_Por_Ação: Number(data[1].total_capital_propio),
+          Lucro_Por_Ação_Acumulada:
+            Number(
+              data[0].total_passivo_nao_corrente +
+                data[0].total_passivo_correntes
+            ) - data[0].disponibilidades,
+        },
+        {
+          name: "Fevereiro",
+          Lucro_Por_Ação: Number(data[1].total_capital_propio),
 
-        Lucro_Por_Ação_Acumulada:
-          Number(
-            data[1].total_passivo_nao_corrente + data[1].total_passivo_correntes
-          ) - data[1].disponibilidades,
-      }
-    );
-    setindicador_7_daddos(indicardor_7);
+          Lucro_Por_Ação_Acumulada:
+            Number(
+              data[1].total_passivo_nao_corrente +
+                data[1].total_passivo_correntes
+            ) - data[1].disponibilidades,
+        }
+      );
+      setindicador_7_daddos(indicardor_7);
+    }
   };
 
   useEffect(() => {

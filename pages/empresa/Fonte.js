@@ -33,6 +33,24 @@ export default function Fonte({ empresa }) {
 
   const [mes, setmes] = useState();
 
+  const getBalanco = async () => {
+    const res = await fetch("/api/empresa/getBalanco", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id_empresa: new ObjectId(empresa._id),
+        ano: ano,
+      }),
+    });
+    const data = await res.json();
+    setbalanco(data);
+  };
+  useEffect(() => {
+    getBalanco();
+  }, []);
+
   const readExcel = (file) => {
     const promise = new Promise((resolve, reject) => {
       const fileReader = new FileReader();
@@ -1563,7 +1581,7 @@ export default function Fonte({ empresa }) {
 
       balancete["73_debito"] = 0;
       balancete["63_debito"] = 0;
-      balancete["68_debito"] = 0;
+
       balancete["26_debito"] = 0;
       balancete["12_debito"] = 0;
       balancete["13_debito"] = 0;
@@ -1575,7 +1593,7 @@ export default function Fonte({ empresa }) {
 
       balancete["73_credito"] = 0;
       balancete["63_credito"] = 0;
-      balancete["68_credito"] = 0;
+
       balancete["26_credito"] = 0;
       balancete["12_credito"] = 0;
       balancete["13_credito"] = 0;
@@ -1589,7 +1607,7 @@ export default function Fonte({ empresa }) {
 
       balancete2["73_debito"] = 0;
       balancete2["63_debito"] = 0;
-      balancete2["68_debito"] = 0;
+
       balancete2["26_debito"] = 0;
       balancete2["12_debito"] = 0;
       balancete2["13_debito"] = 0;
@@ -1601,7 +1619,7 @@ export default function Fonte({ empresa }) {
 
       balancete2["73_credito"] = 0;
       balancete2["63_credito"] = 0;
-      balancete2["68_credito"] = 0;
+
       balancete2["26_credito"] = 0;
       balancete2["12_credito"] = 0;
       balancete2["13_credito"] = 0;
@@ -1708,7 +1726,7 @@ export default function Fonte({ empresa }) {
 
       conta11 = Number(balancete2["11_debito"]);
       conta14 = Number(balancete2["14_debito"]);
-      conta18 = Number(balancete2["18_debito"]);
+      conta18 = Number(balancete2["18_credito"]);
 
       balancoarray.imobilizacoes_corporeas =
         Number(conta11 + conta14) - Number(conta18);
@@ -1773,9 +1791,19 @@ export default function Fonte({ empresa }) {
         balancete2["55_credito"] + balancete2["57_credito"]
       );
 
-      balancoarray.resultados_transitados = Number(
-        balancete2["81_credito"] - balancete2["81_debito"]
-      );
+      //------------------------------------------------------------------------------------------------------------------------------------------------
+
+      if (!balanco.length) {
+        balancoarray.resultados_transitados = Number(
+          balancete2["81_credito"] - balancete2["81_debito"]
+        );
+      } else {
+        var lugar = balanco.length - 1;
+        balancoarray.resultados_transitados = Number(
+          Number(balanco[lugar].resultados_de_exercicio) +
+            (balancete2["81_credito"] - balancete2["81_debito"])
+        );
+      }
 
       balancoarray.resultados_de_exercicio =
         drmensal.resultados_liquido_do_exercicio;
