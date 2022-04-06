@@ -25,7 +25,7 @@ export default function App({ data }) {
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="name" padding={{ left: 10, right: 0 }} />
       <YAxis />
-      <Tooltip />
+      <Tooltip formatter={(data) => new Intl.NumberFormat("pt").format(data)} />
       <Legend />
       <Line
         type="monotone"

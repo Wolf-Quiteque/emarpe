@@ -344,7 +344,7 @@ export default function Dashboard({ empresa }) {
           <div className="col-md-6 col-sm-6 col-12">
             <div className="card">
               <div className="card-header">
-                <div className="card-title"> Rendibilidades</div>
+                <div className="card-title"> Rendibilidades (%)</div>
               </div>
               <div className="card-body">
                 {indicador_5_daddos && <BarChart5 data={indicador_5_daddos} />}

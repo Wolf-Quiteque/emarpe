@@ -40,7 +40,9 @@ export default function Demostracao({ empresa }) {
   ]);
   const [balanco, setbalanco] = useState();
   const [ano, setano] = useState("2022");
-  const [mes, setmes] = useState();
+  const [mes, setmes] = useState("todos");
+  const [periodo, setperiodo] = useState("Mensal");
+  const [trimestral, settrimestral] = useState("1º");
 
   const [balancorows, setbalancorows] = useState([
     { designacao: "Activos Não Correntes" },
@@ -5952,7 +5954,12 @@ export default function Demostracao({ empresa }) {
               </div>
               <div className="col-md-2 mb-1">
                 <label>Periodo</label>
-                <select className="form-control">
+                <select
+                  onChange={(e) => {
+                    setperiodo(e.target.value);
+                  }}
+                  className="form-control"
+                >
                   <option>Mensal</option>
                   <option>Trimestral</option>
                   <option>Semestral</option>
@@ -5960,26 +5967,48 @@ export default function Demostracao({ empresa }) {
                 </select>
               </div>
               <div className="col-md-2 mb-1">
-                <label>Mês</label>
-                <select
-                  onChange={(e) => {
-                    setmes(e.target.value);
-                  }}
-                  className="form-control"
-                >
-                  <option>janeiro</option>
-                  <option>fevereiro</option>
-                  <option>março</option>
-                  <option>abril</option>
-                  <option>maio</option>
-                  <option>junho</option>
-                  <option>julho</option>
-                  <option>agosto</option>
-                  <option>setembro</option>
-                  <option>outubro</option>
-                  <option>novembro</option>
-                  <option>dezembro</option>
-                </select>
+                {periodo == "Mensal" ? (
+                  <>
+                    <label>Mês</label>
+                    <select
+                      onChange={(e) => {
+                        setmes(e.target.value);
+                      }}
+                      className="form-control"
+                    >
+                      <option>todos</option>
+                      <option>janeiro</option>
+                      <option>fevereiro</option>
+                      <option>março</option>
+                      <option>abril</option>
+                      <option>maio</option>
+                      <option>junho</option>
+                      <option>julho</option>
+                      <option>agosto</option>
+                      <option>setembro</option>
+                      <option>outubro</option>
+                      <option>novembro</option>
+                      <option>dezembro</option>
+                    </select>
+                  </>
+                ) : periodo == "Trimestral" ? (
+                  <>
+                    <label>Trimestral</label>
+                    <select
+                      onChange={(e) => {
+                        settrimestral(e.target.value);
+                      }}
+                      className="form-control"
+                    >
+                      <option>todos</option>
+                      <option>1º</option>
+                      <option>2º</option>
+                      <option>3º</option>
+                    </select>
+                  </>
+                ) : (
+                  ""
+                )}
               </div>
 
               <div className="col-md-2 mb-1">
