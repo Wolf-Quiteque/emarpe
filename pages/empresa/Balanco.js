@@ -1402,8 +1402,6 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                className="text-danger"
-                style={{ fontWeight: "900" }}
                 value={data[0].total_activo_nao_correntes}
                 thousandSeparator="."
                 decimalSeparator=","
@@ -1413,8 +1411,6 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[0] && (
                 <NumberFormat
-                  className="text-danger"
-                  style={{ fontWeight: "900" }}
                   className="text-danger"
                   style={{ fontWeight: "900" }}
                   value={data[0].total_activo_nao_correntes}
@@ -1430,8 +1426,6 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                className="text-danger"
-                style={{ fontWeight: "900" }}
                 className="text-danger"
                 style={{ fontWeight: "900" }}
                 value={data[0].total_activo_nao_correntes}
@@ -1460,8 +1454,6 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                className="text-danger"
-                style={{ fontWeight: "900" }}
                 value={data[0].total_activo_nao_correntes}
                 thousandSeparator="."
                 decimalSeparator=","
@@ -1485,8 +1477,6 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                className="text-danger"
-                style={{ fontWeight: "900" }}
                 className="text-danger"
                 style={{ fontWeight: "900" }}
                 value={data[0].total_activo_nao_correntes}
@@ -1514,8 +1504,6 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                className="text-danger"
-                style={{ fontWeight: "900" }}
                 value={data[0].total_activo_nao_correntes}
                 thousandSeparator="."
                 decimalSeparator=","
@@ -1539,8 +1527,6 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                className="text-danger"
-                style={{ fontWeight: "900" }}
                 className="text-danger"
                 style={{ fontWeight: "900" }}
                 value={data[0].total_activo_nao_correntes}
@@ -1568,8 +1554,6 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                className="text-danger"
-                style={{ fontWeight: "900" }}
                 value={data[0].total_activo_nao_correntes}
                 thousandSeparator="."
                 decimalSeparator=","
@@ -1593,8 +1577,6 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                className="text-danger"
-                style={{ fontWeight: "900" }}
                 className="text-danger"
                 style={{ fontWeight: "900" }}
                 value={data[0].total_activo_nao_correntes}
@@ -1622,8 +1604,6 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                className="text-danger"
-                style={{ fontWeight: "900" }}
                 value={data[0].total_activo_nao_correntes}
                 thousandSeparator="."
                 decimalSeparator=","
@@ -1647,8 +1627,6 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                className="text-danger"
-                style={{ fontWeight: "900" }}
                 className="text-danger"
                 style={{ fontWeight: "900" }}
                 value={data[0].total_activo_nao_correntes}
@@ -1676,8 +1654,6 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                className="text-danger"
-                style={{ fontWeight: "900" }}
                 value={data[0].total_activo_nao_correntes}
                 thousandSeparator="."
                 decimalSeparator=","
@@ -1701,8 +1677,6 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                className="text-danger"
-                style={{ fontWeight: "900" }}
                 className="text-danger"
                 style={{ fontWeight: "900" }}
                 value={data[0].total_activo_nao_correntes}
