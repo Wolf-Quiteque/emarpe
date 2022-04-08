@@ -1600,6 +1600,7 @@ export default function Fonte({ empresa }) {
       balancete["52_credito"] = 0;
       balancete["55_credito"] = 0;
       balancete["57_credito"] = 0;
+      // balancete["68_credito"]=0;
 
       // Balancete2
 

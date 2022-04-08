@@ -23,6 +23,12 @@ export default function Demostracao({ empresa }) {
     {
       designacao: " Meios fixos e investimentos",
     },
+    {
+      designacao: " Debito",
+    },
+    {
+      designacao: "Credito",
+    },
 
     { designacao: "Imobilizacoes Corporeas" },
     { designacao: "Imobilizacoes Incorporeas" },
@@ -115,14 +121,19 @@ export default function Demostracao({ empresa }) {
     meses.push({
       key: "designacao",
       name: "Designação",
-      resizable: false,
+      resizable: true,
       frozen: true,
       width: 300,
     });
 
     for (let index = 0; index < data.length; index++) {
       if (data[5]) {
-        meses.push({ key: data[index].mes, name: data[index].mes, width: 200 });
+        meses.push({
+          key: data[index].mes,
+          name: data[index].mes,
+          width: 200,
+          height: 400,
+        });
       } else {
         meses.push({ key: data[index].mes, name: data[index].mes });
       }
@@ -140,15 +151,7 @@ export default function Demostracao({ empresa }) {
           janeiro:
             data &&
             (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["11_debito"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[0] && (
+              <>
                 <NumberFormat
                   value={data[0]["11_debito"]}
                   thousandSeparator="."
@@ -156,28 +159,77 @@ export default function Demostracao({ empresa }) {
                   displayType="text"
                   decimalScale={2}
                 />
-              )
-            )),
-          designacao: "11 Imobilizacoes Corporeas",
-          fevereiro:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["11_debito"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[1] && (
                 <NumberFormat
-                  value={data[1]["11_debito"]}
+                  value={data[0]["11_credito"]}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
                   decimalScale={2}
                 />
+              </>
+            ) : (
+              data[0] && (
+                <>
+                  <NumberFormat
+                    value={data[0]["11_debito"]}
+                    thousandSeparator="."
+                    decimalSeparator=","
+                    displayType="text"
+                    decimalScale={2}
+                  />
+                  <NumberFormat
+                    style={{ marginLeft: "10px" }}
+                    className="text-danger"
+                    value={data[0]["11_credito"]}
+                    thousandSeparator="."
+                    decimalSeparator=","
+                    displayType="text"
+                    decimalScale={2}
+                  />
+                </>
+              )
+            )),
+
+          designacao: "11 Imobilizacoes Corporeas",
+          fevereiro:
+            data &&
+            (data.length == 1 ? (
+              <>
+                <NumberFormat
+                  value={data[0]["11_debito"]}
+                  thousandSeparator="."
+                  decimalSeparator=","
+                  displayType="text"
+                  decimalScale={2}
+                />
+
+                <NumberFormat
+                  value={data[0]["11_credito"]}
+                  thousandSeparator="."
+                  decimalSeparator=","
+                  displayType="text"
+                  decimalScale={2}
+                />
+              </>
+            ) : (
+              data[1] && (
+                <>
+                  <NumberFormat
+                    value={data[1]["11_debito"]}
+                    thousandSeparator="."
+                    decimalSeparator=","
+                    displayType="text"
+                    decimalScale={2}
+                  />
+
+                  <NumberFormat
+                    value={data[1]["11_credito"]}
+                    thousandSeparator="."
+                    decimalSeparator=","
+                    displayType="text"
+                    decimalScale={2}
+                  />
+                </>
               )
             )),
 
@@ -8153,7 +8205,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -8162,7 +8214,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[0] && (
                 <NumberFormat
-                  value={data[0]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -8170,12 +8222,12 @@ export default function Demostracao({ empresa }) {
                 />
               )
             )),
-          designacao: " 68 Outros proveitos e genhos n Operacionais",
+          designacao: " 68 Outros proveitos e ganhos ñ Operacionais",
           fevereiro:
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -8197,7 +8249,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -8218,7 +8270,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -8239,7 +8291,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -8260,7 +8312,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -8281,7 +8333,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -8302,7 +8354,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -8323,7 +8375,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -8344,7 +8396,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -8365,7 +8417,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -8386,7 +8438,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -10219,270 +10271,14 @@ export default function Demostracao({ empresa }) {
             )),
         });
 
-        balanceterow.push({
-          janeiro:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[0] && (
-                <NumberFormat
-                  value={data[0]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          designacao: "Resultados do Ano",
-          fevereiro:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[1] && (
-                <NumberFormat
-                  value={data[1]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-
-          marco:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[2] && (
-                <NumberFormat
-                  value={data[2]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          abril:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[3] && (
-                <NumberFormat
-                  value={data[3]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          maio:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[4] && (
-                <NumberFormat
-                  value={data[4]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          junho:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[5] && (
-                <NumberFormat
-                  value={data[5]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          julho:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[6] && (
-                <NumberFormat
-                  value={data[6]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          agosto:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[7] && (
-                <NumberFormat
-                  value={data[7]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          setembro:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[8] && (
-                <NumberFormat
-                  value={data[8]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          outubro:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[9] && (
-                <NumberFormat
-                  value={data[9]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          novembro:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[10] && (
-                <NumberFormat
-                  value={data[10]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          dezembro:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[11] && (
-                <NumberFormat
-                  value={data[11]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-        });
-
         // hdfgfhyeruuhrgfh
+
         balanceterow.push({
           janeiro:
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -10491,264 +10287,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[0] && (
                 <NumberFormat
-                  value={data[0]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          designacao: "Correções de Erros Funadamentais ",
-          fevereiro:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[1] && (
-                <NumberFormat
-                  value={data[1]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-
-          marco:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[2] && (
-                <NumberFormat
-                  value={data[2]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          abril:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[3] && (
-                <NumberFormat
-                  value={data[3]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          maio:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[4] && (
-                <NumberFormat
-                  value={data[4]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          junho:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[5] && (
-                <NumberFormat
-                  value={data[5]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          julho:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[6] && (
-                <NumberFormat
-                  value={data[6]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          agosto:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[7] && (
-                <NumberFormat
-                  value={data[7]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          setembro:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[8] && (
-                <NumberFormat
-                  value={data[8]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          outubro:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[9] && (
-                <NumberFormat
-                  value={data[9]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          novembro:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[10] && (
-                <NumberFormat
-                  value={data[10]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-          dezembro:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[11] && (
-                <NumberFormat
-                  value={data[11]["0"]}
-                  thousandSeparator="."
-                  decimalSeparator=","
-                  displayType="text"
-                  decimalScale={2}
-                />
-              )
-            )),
-        });
-
-        balanceterow.push({
-          janeiro:
-            data &&
-            (data.length == 1 ? (
-              <NumberFormat
-                value={data[0]["0"]}
-                thousandSeparator="."
-                decimalSeparator=","
-                displayType="text"
-                decimalScale={2}
-              />
-            ) : (
-              data[0] && (
-                <NumberFormat
-                  value={data[0]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -10761,7 +10300,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -10770,7 +10309,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[1] && (
                 <NumberFormat
-                  value={data[1]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -10783,7 +10322,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -10792,7 +10331,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[2] && (
                 <NumberFormat
-                  value={data[2]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -10804,7 +10343,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -10813,7 +10352,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[3] && (
                 <NumberFormat
-                  value={data[3]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -10825,7 +10364,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -10834,7 +10373,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[4] && (
                 <NumberFormat
-                  value={data[4]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -10846,7 +10385,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -10855,7 +10394,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[5] && (
                 <NumberFormat
-                  value={data[5]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -10867,7 +10406,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -10876,7 +10415,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[6] && (
                 <NumberFormat
-                  value={data[6]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -10888,7 +10427,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -10897,7 +10436,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[7] && (
                 <NumberFormat
-                  value={data[7]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -10909,7 +10448,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -10918,7 +10457,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[8] && (
                 <NumberFormat
-                  value={data[8]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -10930,7 +10469,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -10939,7 +10478,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[9] && (
                 <NumberFormat
-                  value={data[9]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -10951,7 +10490,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -10960,7 +10499,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[10] && (
                 <NumberFormat
-                  value={data[10]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -10972,7 +10511,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -10981,7 +10520,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[11] && (
                 <NumberFormat
-                  value={data[11]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -10996,7 +10535,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11005,7 +10544,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[0] && (
                 <NumberFormat
-                  value={data[0]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11018,7 +10557,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11027,7 +10566,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[1] && (
                 <NumberFormat
-                  value={data[1]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11040,7 +10579,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11049,7 +10588,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[2] && (
                 <NumberFormat
-                  value={data[2]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11061,7 +10600,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11070,7 +10609,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[3] && (
                 <NumberFormat
-                  value={data[3]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11082,7 +10621,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11091,7 +10630,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[4] && (
                 <NumberFormat
-                  value={data[4]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11103,7 +10642,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11112,7 +10651,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[5] && (
                 <NumberFormat
-                  value={data[5]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11124,7 +10663,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11133,7 +10672,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[6] && (
                 <NumberFormat
-                  value={data[6]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11145,7 +10684,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11154,7 +10693,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[7] && (
                 <NumberFormat
-                  value={data[7]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11166,7 +10705,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11175,7 +10714,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[8] && (
                 <NumberFormat
-                  value={data[8]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11187,7 +10726,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11196,7 +10735,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[9] && (
                 <NumberFormat
-                  value={data[9]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11208,7 +10747,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11217,7 +10756,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[10] && (
                 <NumberFormat
-                  value={data[10]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11229,7 +10768,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11238,7 +10777,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[11] && (
                 <NumberFormat
-                  value={data[11]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11253,7 +10792,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11262,7 +10801,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[0] && (
                 <NumberFormat
-                  value={data[0]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11275,7 +10814,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11284,7 +10823,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[1] && (
                 <NumberFormat
-                  value={data[1]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11297,7 +10836,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11306,7 +10845,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[2] && (
                 <NumberFormat
-                  value={data[2]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11318,7 +10857,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11327,7 +10866,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[3] && (
                 <NumberFormat
-                  value={data[3]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11339,7 +10878,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11348,7 +10887,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[4] && (
                 <NumberFormat
-                  value={data[4]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11360,7 +10899,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11369,7 +10908,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[5] && (
                 <NumberFormat
-                  value={data[5]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11381,7 +10920,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11390,7 +10929,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[6] && (
                 <NumberFormat
-                  value={data[6]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11402,7 +10941,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11411,7 +10950,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[7] && (
                 <NumberFormat
-                  value={data[7]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11423,7 +10962,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11432,7 +10971,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[8] && (
                 <NumberFormat
-                  value={data[8]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11444,7 +10983,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11453,7 +10992,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[9] && (
                 <NumberFormat
-                  value={data[9]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11465,7 +11004,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11474,7 +11013,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[10] && (
                 <NumberFormat
-                  value={data[10]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11486,7 +11025,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11495,7 +11034,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[11] && (
                 <NumberFormat
-                  value={data[11]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11510,7 +11049,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11519,7 +11058,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[0] && (
                 <NumberFormat
-                  value={data[0]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11532,7 +11071,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11541,7 +11080,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[1] && (
                 <NumberFormat
-                  value={data[1]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11554,7 +11093,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11563,7 +11102,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[2] && (
                 <NumberFormat
-                  value={data[2]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11575,7 +11114,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11584,7 +11123,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[3] && (
                 <NumberFormat
-                  value={data[3]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11596,7 +11135,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11605,7 +11144,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[4] && (
                 <NumberFormat
-                  value={data[4]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11617,7 +11156,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11626,7 +11165,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[5] && (
                 <NumberFormat
-                  value={data[5]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11638,7 +11177,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11647,7 +11186,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[6] && (
                 <NumberFormat
-                  value={data[6]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11659,7 +11198,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11668,7 +11207,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[7] && (
                 <NumberFormat
-                  value={data[7]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11680,7 +11219,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11689,7 +11228,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[8] && (
                 <NumberFormat
-                  value={data[8]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11701,7 +11240,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11710,7 +11249,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[9] && (
                 <NumberFormat
-                  value={data[9]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11722,7 +11261,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11731,7 +11270,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[10] && (
                 <NumberFormat
-                  value={data[10]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11743,7 +11282,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11752,7 +11291,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[11] && (
                 <NumberFormat
-                  value={data[11]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11767,7 +11306,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11776,7 +11315,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[0] && (
                 <NumberFormat
-                  value={data[0]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11789,7 +11328,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11798,7 +11337,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[1] && (
                 <NumberFormat
-                  value={data[1]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11811,7 +11350,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11820,7 +11359,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[2] && (
                 <NumberFormat
-                  value={data[2]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11832,7 +11371,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11841,7 +11380,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[3] && (
                 <NumberFormat
-                  value={data[3]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11853,7 +11392,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11862,7 +11401,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[4] && (
                 <NumberFormat
-                  value={data[4]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11874,7 +11413,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11883,7 +11422,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[5] && (
                 <NumberFormat
-                  value={data[5]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11895,7 +11434,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11904,7 +11443,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[6] && (
                 <NumberFormat
-                  value={data[6]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11916,7 +11455,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11925,7 +11464,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[7] && (
                 <NumberFormat
-                  value={data[7]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11937,7 +11476,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11946,7 +11485,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[8] && (
                 <NumberFormat
-                  value={data[8]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11958,7 +11497,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11967,7 +11506,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[9] && (
                 <NumberFormat
-                  value={data[9]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -11979,7 +11518,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -11988,7 +11527,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[10] && (
                 <NumberFormat
-                  value={data[10]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -12000,7 +11539,7 @@ export default function Demostracao({ empresa }) {
             data &&
             (data.length == 1 ? (
               <NumberFormat
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -12009,7 +11548,7 @@ export default function Demostracao({ empresa }) {
             ) : (
               data[11] && (
                 <NumberFormat
-                  value={data[11]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -12026,7 +11565,7 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -12037,7 +11576,7 @@ export default function Demostracao({ empresa }) {
                 <NumberFormat
                   className="text-danger"
                   style={{ fontWeight: "900" }}
-                  value={data[0]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -12054,7 +11593,7 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -12065,7 +11604,7 @@ export default function Demostracao({ empresa }) {
                 <NumberFormat
                   className="text-danger"
                   style={{ fontWeight: "900" }}
-                  value={data[1]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -12080,7 +11619,7 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -12091,7 +11630,7 @@ export default function Demostracao({ empresa }) {
                 <NumberFormat
                   className="text-danger"
                   style={{ fontWeight: "900" }}
-                  value={data[2]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -12105,7 +11644,7 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -12116,7 +11655,7 @@ export default function Demostracao({ empresa }) {
                 <NumberFormat
                   className="text-danger"
                   style={{ fontWeight: "900" }}
-                  value={data[3]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -12130,7 +11669,7 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -12141,7 +11680,7 @@ export default function Demostracao({ empresa }) {
                 <NumberFormat
                   className="text-danger"
                   style={{ fontWeight: "900" }}
-                  value={data[4]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -12155,7 +11694,7 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -12166,7 +11705,7 @@ export default function Demostracao({ empresa }) {
                 <NumberFormat
                   className="text-danger"
                   style={{ fontWeight: "900" }}
-                  value={data[5]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -12180,7 +11719,7 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -12191,7 +11730,7 @@ export default function Demostracao({ empresa }) {
                 <NumberFormat
                   className="text-danger"
                   style={{ fontWeight: "900" }}
-                  value={data[6]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -12205,7 +11744,7 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -12216,7 +11755,7 @@ export default function Demostracao({ empresa }) {
                 <NumberFormat
                   className="text-danger"
                   style={{ fontWeight: "900" }}
-                  value={data[7]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -12230,7 +11769,7 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -12241,7 +11780,7 @@ export default function Demostracao({ empresa }) {
                 <NumberFormat
                   className="text-danger"
                   style={{ fontWeight: "900" }}
-                  value={data[8]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -12255,7 +11794,7 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -12266,7 +11805,7 @@ export default function Demostracao({ empresa }) {
                 <NumberFormat
                   className="text-danger"
                   style={{ fontWeight: "900" }}
-                  value={data[9]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -12280,7 +11819,7 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -12291,7 +11830,7 @@ export default function Demostracao({ empresa }) {
                 <NumberFormat
                   className="text-danger"
                   style={{ fontWeight: "900" }}
-                  value={data[10]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
@@ -12305,7 +11844,7 @@ export default function Demostracao({ empresa }) {
               <NumberFormat
                 className="text-danger"
                 style={{ fontWeight: "900" }}
-                value={data[0]["0"]}
+                value={0}
                 thousandSeparator="."
                 decimalSeparator=","
                 displayType="text"
@@ -12316,7 +11855,7 @@ export default function Demostracao({ empresa }) {
                 <NumberFormat
                   className="text-danger"
                   style={{ fontWeight: "900" }}
-                  value={data[11]["0"]}
+                  value={0}
                   thousandSeparator="."
                   decimalSeparator=","
                   displayType="text"
