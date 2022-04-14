@@ -9,7 +9,7 @@ import Fonte from "../../pages/empresa/Fonte";
 import Demostracao from "../../pages/empresa/Demostracao";
 import Balanco from "../../pages/empresa/Balanco";
 import Balancete from "../../pages/empresa/Balancete";
-
+import PlanoConta from "../../pages/empresa/Plano-conta";
 export default function EmpresaLayout({ children, empresa }) {
   const router = useRouter();
   const { data: session, status } = useSession();
@@ -399,7 +399,13 @@ export default function EmpresaLayout({ children, empresa }) {
                   </li>
 
                   <li className="nav-item">
-                    <a href="../calendar.html" className="nav-link">
+                    <a
+                      onClick={() => {
+                        setview(<PlanoConta empresa={empresa} />);
+                      }}
+                      href="#"
+                      className="nav-link"
+                    >
                       <i className="nav-icon fas fa-align-right"></i>
                       <p>Plano de Contas</p>
                     </a>
