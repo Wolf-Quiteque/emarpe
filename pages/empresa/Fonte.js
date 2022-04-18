@@ -1999,6 +1999,7 @@ export default function Fonte({ empresa }) {
                       <option>2019</option>
                       <option>2018</option>
                       <option>2017</option>
+                      <option>2016 </option>
                     </select>
                   </div>
 
