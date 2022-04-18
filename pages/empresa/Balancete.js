@@ -135,7 +135,10 @@ export default function Demostracao({ empresa }) {
           height: 400,
         });
       } else {
-        meses.push({ key: data[index].mes, name: data[index].mes });
+        meses.push(
+          { key: data[index].mes, name: data[index].mes, width: 150 },
+          { key: "credito", name: "credito", resizable: true, width: 150 }
+        );
       }
 
       if (index == datalenght) {
@@ -189,6 +192,7 @@ export default function Demostracao({ empresa }) {
                 </>
               )
             )),
+          credito: "90890",
 
           designacao: "11 Imobilizacoes Corporeas",
           fevereiro:
