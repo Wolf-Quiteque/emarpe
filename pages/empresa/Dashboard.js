@@ -138,6 +138,7 @@ export default function Dashboard({ empresa }) {
             Number(data[1].total_capital_propio / data[1].total_activos) * 100,
         }
       );
+      console.log(indicardor_3);
       setindicador_3_daddos(indicardor_3);
 
       //---------------------------------------------------------------------------
