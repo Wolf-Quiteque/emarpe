@@ -18,7 +18,8 @@ export default function Dummy() {
 
         <div className="row">
           <div className="col-md-12">
-            <h3 className="mt-3 mb-3">Dummmmmmy</h3>
+            <h3 className="mt-3 mb-3">Dummmy</h3>
+            <h1>haha</h1>
           </div>
         </div>
       </main>
