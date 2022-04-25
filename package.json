@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "node app.js",
-    "build": "next build",
+    "build": "npm run build",
     "start": "NODE_ENV=development node app.js"
   },
   "dependencies": {
