@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "node app.js",
     "build": "next build",
-    "start": "next build && NODE_ENV=development node app.js"
+    "start": "NODE_ENV=development node app.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
