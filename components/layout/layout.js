@@ -56,7 +56,7 @@ export default function Layout({ children }) {
                 <li className="nav-item mt-3">
                   <h4>
                     <i className=" fas fa-solid fa-circle text-success"></i>{" "}
-                    {usuario && usuario.FIRST_NAME}
+                    {usuario && usuario.nome}
                   </h4>
                 </li>
 
