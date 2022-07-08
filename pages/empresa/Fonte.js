@@ -49,7 +49,7 @@ export default function Fonte({ empresa }) {
   };
   useEffect(() => {
     getBalanco();
-  }, []);
+  }, [reload]);
 
   const readExcel = (file) => {
     const promise = new Promise((resolve, reject) => {
@@ -1577,30 +1577,72 @@ export default function Fonte({ empresa }) {
 
         //--------------------------------------------------------
       }
-      balancete["71_debito"] = 0;
+      balancete["71_debito"]
+        ? balancete["71_debito"]
+        : (balancete["71_debito"] = 0);
 
-      balancete["73_debito"] = 0;
-      balancete["63_debito"] = 0;
+      balancete["73_debito"]
+        ? balancete["73_debito"]
+        : (balancete["73_debito"] = 0);
+      balancete["63_debito"]
+        ? balancete["63_debito"]
+        : (balancete["63_debito"] = 0);
 
-      balancete["26_debito"] = 0;
-      balancete["12_debito"] = 0;
-      balancete["13_debito"] = 0;
-      balancete["52_debito"] = 0;
-      balancete["55_debito"] = 0;
-      balancete["57_debito"] = 0;
+      balancete["26_debito"]
+        ? balancete["26_debito"]
+        : (balancete["26_debito"] = 0);
+      balancete["12_debito"]
+        ? balancete["12_debito"]
+        : (balancete["12_debito"] = 0);
+      balancete["13_debito"]
+        ? balancete["13_debito"]
+        : (balancete["13_debito"] = 0);
+      balancete["52_debito"]
+        ? balancete["52_debito"]
+        : (balancete["52_debito"] = 0);
+      balancete["55_debito"]
+        ? balancete["55_debito"]
+        : (balancete["55_debito"] = 0);
+      balancete["57_debito"]
+        ? balancete["57_debito"]
+        : (balancete["57_debito"] = 0);
 
-      balancete["71_credito"] = 0;
+      balancete["71_credito"]
+        ? balancete["71_credito"]
+        : (balancete["71_credito"] = 0);
 
-      balancete["73_credito"] = 0;
-      balancete["63_credito"] = 0;
+      balancete["73_credito"]
+        ? balancete["73_credito"]
+        : (balancete["73_credito"] = 0);
+      balancete["63_credito"]
+        ? balancete["63_credito"]
+        : (balancete["63_credito"] = 0);
 
-      balancete["26_credito"] = 0;
-      balancete["12_credito"] = 0;
-      balancete["13_credito"] = 0;
-      balancete["52_credito"] = 0;
-      balancete["55_credito"] = 0;
-      balancete["57_credito"] = 0;
-      // balancete["68_credito"]=0;
+      balancete["26_credito"]
+        ? balancete["26_credito"]
+        : (balancete["26_credito"] = 0);
+      balancete["12_credito"]
+        ? balancete["12_credito"]
+        : (balancete["12_credito"] = 0);
+      balancete["13_credito"]
+        ? balancete["13_credito"]
+        : (balancete["13_credito"] = 0);
+      balancete["52_credito"]
+        ? balancete["52_credito"]
+        : (balancete["52_credito"] = 0);
+      balancete["55_credito"]
+        ? balancete["55_credito"]
+        : (balancete["55_credito"] = 0);
+      balancete["57_credito"]
+        ? balancete["57_credito"]
+        : (balancete["57_credito"] = 0);
+
+      balancete["68_credito"]
+        ? balancete["68_credito"]
+        : (balancete["68_credito"] = 0);
+      balancete["68_debito"]
+        ? balancete["68_debito"]
+        : (balancete["68_debito"] = 0);
 
       // Balancete2
 
@@ -1798,12 +1840,14 @@ export default function Fonte({ empresa }) {
         balancoarray.resultados_transitados = Number(
           balancete2["81_credito"] - balancete2["81_debito"]
         );
+        console.log("nothing");
       } else {
         var lugar = balanco.length - 1;
         balancoarray.resultados_transitados = Number(
           Number(balanco[lugar].resultados_de_exercicio) +
             (balancete2["81_credito"] - balancete2["81_debito"])
         );
+        console.log("something");
       }
 
       balancoarray.resultados_de_exercicio =
@@ -1851,6 +1895,7 @@ export default function Fonte({ empresa }) {
       );
 
       setbalanco(balancoarray);
+      console.log(balancoarray);
     });
   };
 
@@ -1926,7 +1971,7 @@ export default function Fonte({ empresa }) {
           });
         } else {
           toast.update(toaststate, {
-            render: result.error,
+            render: "houve um erro",
             type: "error",
             isLoading: false,
             closeOnClick: true,
